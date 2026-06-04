@@ -36,7 +36,7 @@ export function Footer() {
               DARLING MARTECH
             </div>
             <p
-              className="text-xs mb-4"
+              className="mb-4 text-xs"
               style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}
             >
               One accountable operator.

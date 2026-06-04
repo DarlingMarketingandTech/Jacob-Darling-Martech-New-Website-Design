@@ -131,7 +131,7 @@ export function ToolsLab() {
                     style={{ color: "var(--charcoal)" }}
                   >
                     <span
-                      className="h-1.5 w-1.5 rounded-full shrink-0"
+                      className="shrink-0 h-1.5 w-1.5 rounded-full"
                       style={{ background: "var(--crimson)" }}
                       aria-hidden="true"
                     />
