@@ -120,7 +120,7 @@ export function ContactForm() {
         </label>
         <textarea
           id="broken"
-            aria-required="true"
+          aria-required="true"
           name="broken"
           required
           rows={4}
