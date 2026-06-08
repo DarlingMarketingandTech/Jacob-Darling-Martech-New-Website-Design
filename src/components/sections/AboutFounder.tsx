@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
@@ -11,25 +12,24 @@ const chips = [
 
 export function AboutFounder() {
   return (
-    <section className="section-padding" style={{ background: "var(--cream)" }}>
+    <section className="section-padding bg-cream">
       <Container>
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div
-            className="aspect-[4/5] w-full rounded-[var(--radius-lg)] border"
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-lg)] border"
             style={{
-              background: "var(--surface-sunken)",
               borderColor: "var(--line)",
               maxWidth: 440,
             }}
           >
-            <div className="flex h-full items-center justify-center">
-              <span
-                className="text-xs font-bold tracking-[0.14em] uppercase"
-                style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
-              >
-                FOUNDER PHOTO
-              </span>
-            </div>
+            <Image
+              src="/founder-workspace.jpg"
+              alt="Jacob Darling at his workspace — Darling Martech founder"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 440px"
+              priority
+            />
           </div>
 
           <div className="pt-2">
@@ -57,7 +57,7 @@ export function AboutFounder() {
             </p>
 
             <div className="mt-8 border-l-[3px] pl-5" style={{ borderColor: "var(--crimson)" }}>
-              <p className="dm-quote" style={{ color: "var(--charcoal)", fontFamily: "var(--font-serif)" }}>
+              <p className="dm-quote" style={{ color: "var(--charcoal)" }}>
                 Good strategy points the way. A connected system makes it repeatable.
               </p>
             </div>
@@ -70,7 +70,6 @@ export function AboutFounder() {
                   style={{
                     borderColor: "var(--line-strong)",
                     color: "var(--charcoal)",
-                    fontFamily: "var(--font-sans)",
                   }}
                 >
                   {chip}
@@ -78,7 +77,7 @@ export function AboutFounder() {
               ))}
             </div>
 
-            <p className="mt-6 text-sm" style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}>
+            <p className="mt-6 text-sm font-mono" style={{ color: "var(--fg3)" }}>
               &#10043; Jacob Darling &mdash; Darling Martech
             </p>
           </div>

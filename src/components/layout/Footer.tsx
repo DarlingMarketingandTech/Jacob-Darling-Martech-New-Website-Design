@@ -22,7 +22,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--navy)] text-[var(--fg-on-dark-1)]">
+    <footer className="bg-navy text-[var(--fg-on-dark-1)]">
       <Container className="pt-16 pb-8">
         <Rule className="mb-12" light />
 
@@ -30,14 +30,13 @@ export function Footer() {
           {/* Company info */}
           <div className="lg:col-span-1">
             <div
-              className="mb-2 text-sm font-black tracking-[0.16em] uppercase"
-              style={{ fontFamily: "var(--font-sans)", color: "var(--cream)" }}
+              className="mb-2 text-sm font-black tracking-[0.16em] uppercase text-cream"
             >
               DARLING MARTECH
             </div>
             <p
-              className="mb-4 text-xs"
-              style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}
+              className="mb-4 text-xs font-mono"
+              style={{ color: "var(--fg-on-dark-3)" }}
             >
               One accountable operator.
             </p>
@@ -81,7 +80,7 @@ export function Footer() {
           className="mt-12 flex flex-col gap-2 border-t pt-6 sm:flex-row sm:items-center sm:justify-between"
           style={{ borderColor: "var(--line-on-dark)" }}
         >
-          <p className="text-xs" style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}>
+          <p className="text-xs font-mono" style={{ color: "var(--fg-on-dark-3)" }}>
             &copy; {new Date().getFullYear()} Darling Martech. All rights reserved.
           </p>
           <div className="flex gap-4">

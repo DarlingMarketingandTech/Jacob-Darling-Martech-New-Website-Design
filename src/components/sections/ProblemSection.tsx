@@ -79,7 +79,7 @@ export function ProblemSection() {
   const [open, setOpen] = useState<number>(0);
 
   return (
-    <section className="section-padding" style={{ background: "var(--cream)" }}>
+    <section className="section-padding bg-cream">
       <Container>
         <div className="max-w-[760px]">
           <Eyebrow>WHERE IT BREAKS</Eyebrow>
@@ -100,8 +100,8 @@ export function ProblemSection() {
                 aria-hidden="true"
               />
               <div
-                className="mb-3 text-xs font-bold tracking-[0.14em] uppercase"
-                style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
+                className="mb-3 text-xs font-bold tracking-[0.14em] uppercase font-mono"
+                style={{ color: "var(--fg3)" }}
               >
                 {card.code}
               </div>
@@ -112,8 +112,7 @@ export function ProblemSection() {
                 {card.description}
               </p>
               <p
-                className="mt-3 text-xs font-bold"
-                style={{ color: "var(--crimson)", fontFamily: "var(--font-mono)" }}
+                className="mt-3 text-xs font-bold font-mono text-crimson"
               >
                 {card.cost}
               </p>
@@ -149,8 +148,7 @@ export function ProblemSection() {
                     aria-expanded={isOpen}
                   >
                     <span
-                      className="text-sm font-bold"
-                      style={{ color: "var(--crimson)", fontFamily: "var(--font-mono)" }}
+                      className="text-sm font-bold font-mono text-crimson"
                     >
                       0{i + 1}
                     </span>
@@ -158,7 +156,6 @@ export function ProblemSection() {
                       className="flex-1 text-lg font-bold tracking-[-0.01em]"
                       style={{
                         color: isOpen ? "var(--crimson)" : "var(--charcoal)",
-                        fontFamily: "var(--font-sans)",
                       }}
                     >
                       {b.title}

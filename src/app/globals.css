@@ -23,7 +23,8 @@
   --color-fg2: #44515f;
   --color-fg3: #6c7783;
   --color-fg-dark-2: #aab4c0;
-  --color-fg-dark-3: #6e7a88;
+  /* Updated from #6e7a88 to pass WCAG AA (4.5:1) against --navy and --surface-dark */
+  --color-fg-dark-3: #8896a6;
   --color-line: #dad6cc;
   --color-line-strong: #c6c1b5;
 
@@ -42,6 +43,14 @@
   --font-size-body: 1.0625rem;
   --font-size-label: 0.75rem;
 
+  /* Typography metrics */
+  --ls-label: 0.16em;
+  --ls-display: -0.02em;
+  --ls-tight: -0.01em;
+  --lh-tight: 1.04;
+  --lh-snug: 1.18;
+  --lh-body: 1.62;
+
   /* Border radius */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -56,62 +65,12 @@
 
   /* Easing */
   --ease-dm: cubic-bezier(0.22, 1, 0.36, 1);
-}
 
-/* ---------------------------------------------------------------- CSS VARS */
-:root {
-  --crimson: #990000;
-  --navy: #0b1320;
-  --charcoal: #11151c;
-  --cream: #f5f3ee;
-  --white: #ffffff;
-  --burgundy: #6b0f1a;
-  --dusty-rose: #b14b5a;
-  --clay: #c47e61;
-  --warm-gray: #b88f97;
-  --slate-blue: #3a4a63;
-  --steel-blue: #617d99;
-  --cool-sage: #6f7f76;
-  --light-taupe: #d7d2ca;
-  --crimson-700: #7a0000;
-  --crimson-600: #990000;
-  --crimson-500: #b71212;
-  --crimson-100: #f3dada;
-  --surface: var(--white);
-  --surface-dark: #131c2b;
-  --surface-sunken: #ece9e1;
-  --fg1: var(--charcoal);
-  --fg2: #44515f;
-  --fg3: #6c7783;
-  --fg-on-dark-1: #f5f3ee;
-  --fg-on-dark-2: #aab4c0;
-  --fg-on-dark-3: #6e7a88;
-  --fg-accent: var(--crimson);
-  --line: #dad6cc;
-  --line-strong: #c6c1b5;
-  --line-on-dark: rgba(245, 243, 238, 0.14);
-  --rule-crimson: var(--crimson);
-  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Spectral", Georgia, "Times New Roman", serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --t-display: clamp(3rem, 6vw, 5.25rem);
-  --t-h1: clamp(2.25rem, 4vw, 3.5rem);
-  --t-h2: clamp(1.75rem, 2.6vw, 2.5rem);
-  --t-h3: clamp(1.3rem, 1.7vw, 1.6rem);
-  --t-quote: clamp(1.75rem, 3vw, 2.6rem);
-  --t-lead: clamp(1.125rem, 1.4vw, 1.375rem);
-  --t-body: 1.0625rem;
-  --t-label: 0.75rem;
-  --ls-label: 0.16em;
-  --ls-display: -0.02em;
-  --ls-tight: -0.01em;
-  --lh-tight: 1.04;
-  --lh-snug: 1.18;
-  --lh-body: 1.62;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 14px;
-  --radius-pill: 999px;
+  /* Duration */
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+
+  /* Spacing scale */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -122,18 +81,94 @@
   --space-8: 64px;
   --space-9: 96px;
   --space-10: 128px;
-  --shadow-sm: 0 1px 2px rgba(11, 19, 32, 0.06), 0 1px 3px rgba(11, 19, 32, 0.05);
-  --shadow-md: 0 4px 12px rgba(11, 19, 32, 0.08), 0 2px 4px rgba(11, 19, 32, 0.05);
-  --shadow-lg: 0 18px 48px rgba(11, 19, 32, 0.16), 0 4px 12px rgba(11, 19, 32, 0.08);
-  --shadow-dark: 0 24px 60px rgba(0, 0, 0, 0.45);
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --dur-fast: 140ms;
-  --dur-base: 240ms;
+}
+
+/*
+ * CSS TOKEN RULE
+ * ─────────────
+ * @theme {} above is the single source of truth for all design tokens.
+ * Tailwind v4 auto-emits every @theme token into :root (e.g. --color-navy → bg-navy / text-navy).
+ *
+ * The @layer base block below provides:
+ *   1. Short-name aliases (--navy, --crimson, etc.) for component inline-style references.
+ *   2. Semantic aliases (--fg-on-dark-1, --line-on-dark, etc.) with no Tailwind class equivalent.
+ *   3. Shadow / easing compat aliases so existing var(--shadow-sm) etc. continue to resolve.
+ *
+ * Inline styles are acceptable ONLY for dynamic runtime values (e.g. scroll-conditional borders,
+ * colour values from props). Static brand colours should use Tailwind token utility classes.
+ */
+@layer base {
+  :root {
+    --white: #ffffff;
+
+    /* Color short-name aliases — canonical values live in @theme {} */
+    --navy: #0b1320;
+    --crimson: #990000;
+    --charcoal: #11151c;
+    --cream: #f5f3ee;
+    --burgundy: #6b0f1a;
+    --clay: #c47e61;
+    --dusty-rose: #b14b5a;
+    --warm-gray: #b88f97;
+    --slate-blue: #3a4a63;
+    --steel-blue: #617d99;
+    --cool-sage: #6f7f76;
+    --light-taupe: #d7d2ca;
+    --crimson-700: #7a0000;
+    --crimson-600: #990000;
+    --crimson-500: #b71212;
+    --crimson-100: #f3dada;
+
+    /* Surface aliases */
+    --surface: var(--white);
+    --surface-dark: #131c2b;
+    --surface-sunken: #ece9e1;
+
+    /* Semantic foreground aliases */
+    --fg1: var(--charcoal);
+    --fg2: #44515f;
+    --fg3: #6c7783;
+    --fg-on-dark-1: #f5f3ee;
+    --fg-on-dark-2: #aab4c0;
+    --fg-on-dark-3: #8896a6; /* WCAG AA (normal text 4.5:1 min): 6.17:1 vs --navy, 5.66:1 vs --surface-dark ✓ */
+    --fg-accent: var(--crimson);
+
+    /* Border aliases */
+    --line: #dad6cc;
+    --line-strong: #c6c1b5;
+    --line-on-dark: rgba(245, 243, 238, 0.14);
+    --rule-crimson: var(--crimson);
+
+    /* Typography compat aliases (reference @theme font-size tokens) */
+    --t-display: var(--font-size-display);
+    --t-h1: var(--font-size-h1);
+    --t-h2: var(--font-size-h2);
+    --t-h3: var(--font-size-h3);
+    --t-quote: var(--font-size-quote);
+    --t-lead: var(--font-size-lead);
+    --t-body: var(--font-size-body);
+    --t-label: var(--font-size-label);
+
+    /* Shadow compat aliases (reference @theme shadow tokens) */
+    --shadow-sm: var(--shadow-dm-sm);
+    --shadow-md: var(--shadow-dm-md);
+    --shadow-lg: var(--shadow-dm-lg);
+    --shadow-dark: var(--shadow-dm-dark);
+
+    /* Easing compat alias */
+    --ease-out: var(--ease-dm);
+  }
 }
 
 /* ---------------------------------------------------------------- BASE */
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -147,7 +182,7 @@ body {
 }
 
 *:focus-visible {
-  outline: 2px solid #990000;
+  outline: 2px solid var(--crimson);
   outline-offset: 2px;
 }
 

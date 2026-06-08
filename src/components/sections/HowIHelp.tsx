@@ -42,7 +42,7 @@ export function HowIHelp() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="section-padding dot-texture" style={{ background: "var(--charcoal)" }}>
+    <section className="section-padding dot-texture bg-charcoal">
       <Container>
         <div className="max-w-[820px]">
           <Eyebrow color="var(--clay)">THE OPERATOR LAYER</Eyebrow>
@@ -90,8 +90,8 @@ export function HowIHelp() {
                   </div>
                   <div>
                     <div
-                      className="text-xs font-bold tracking-wider"
-                      style={{ color: "var(--clay)", fontFamily: "var(--font-mono)" }}
+                      className="text-xs font-bold tracking-wider font-mono"
+                      style={{ color: "var(--clay)" }}
                     >
                       {stage.n}
                     </div>
@@ -99,7 +99,6 @@ export function HowIHelp() {
                       className="mt-0.5 text-base font-bold transition-colors"
                       style={{
                         color: isActive ? "var(--fg-on-dark-1)" : "var(--fg-on-dark-2)",
-                        fontFamily: "var(--font-sans)",
                       }}
                     >
                       {stage.key}
@@ -121,8 +120,8 @@ export function HowIHelp() {
         >
           <div>
             <div
-              className="text-xs font-bold tracking-wider"
-              style={{ color: "var(--clay)", fontFamily: "var(--font-mono)" }}
+              className="text-xs font-bold tracking-wider font-mono"
+              style={{ color: "var(--clay)" }}
             >
               {stages[active].n} — Stage
             </div>
