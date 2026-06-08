@@ -15,7 +15,7 @@ export function ToolsLab() {
   }
 
   return (
-    <section className="section-padding" style={{ background: "var(--surface-sunken)" }}>
+    <section id="growth-leak-finder" className="section-padding" style={{ background: "var(--surface-sunken)" }}>
       <Container>
         <div className="mb-10 max-w-[760px]">
           <Eyebrow>DIAGNOSTIC STARTING POINTS</Eyebrow>

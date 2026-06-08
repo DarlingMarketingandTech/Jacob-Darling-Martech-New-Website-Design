@@ -59,7 +59,7 @@ export default function ToolsPage() {
         headline="Still unsure where to begin?"
         lead="Start with the Growth Leak Finder and leave with a clear next-step recommendation."
         primaryLabel={segmentCtas.unsure.primary.label}
-        primaryHref={segmentCtas.unsure.primary.href}
+        primaryHref="/tools#growth-leak-finder"
         secondaryLabel={segmentCtas.ready.primary.label}
         secondaryHref={segmentCtas.ready.primary.href}
       />
