@@ -83,7 +83,12 @@ export function ProofSection() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-4">
+        <p className="mt-10 text-sm leading-relaxed" style={{ color: "var(--fg-on-dark-3)" }}>
+          Detailed verified case studies — with named outcomes, specific context, and
+          client permission — are being prepared and will be published in Phase 5.
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-4">
           <Button variant="primary" href={globalCtas.seeProofInAction.href}>
             {globalCtas.seeProofInAction.label}
           </Button>
