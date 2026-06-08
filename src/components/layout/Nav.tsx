@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Container } from "./Container";
+import { Button } from "@/components/ui/Button";
 
 const navLinks = [
   { label: "Services", href: "/services" },
@@ -63,12 +64,14 @@ export function Nav() {
 
           {/* Right: CTA + Burger */}
           <div className="ml-auto flex items-center gap-3">
-            <Link
+            <Button
               href="/contact"
-              className="hidden rounded-[var(--radius-md)] px-5 py-[11px] text-sm font-bold text-white transition-colors duration-[140ms] hover:bg-burgundy lg:block bg-crimson"
+              variant="primary"
+              size="sm"
+              className="hidden lg:inline-flex"
             >
               Book Diagnostic
-            </Link>
+            </Button>
             <button
               className="flex items-center justify-center rounded-[var(--radius-sm)] p-1.5 text-cream lg:hidden"
               onClick={() => setOpen((o) => !o)}
@@ -115,13 +118,13 @@ export function Nav() {
                   </Link>
                 ))}
                 <div className="mt-4">
-                  <Link
+                  <Button
                     href="/contact"
-                    className="inline-flex rounded-[var(--radius-md)] px-6 py-3 text-sm font-bold text-white bg-crimson"
+                    variant="primary"
                     onClick={() => setOpen(false)}
                   >
                     Book Diagnostic
-                  </Link>
+                  </Button>
                 </div>
               </nav>
             </Container>

@@ -3,7 +3,6 @@ interface ToolCardProps {
   title: string;
   description: string;
   status?: string;
-  href?: string;
 }
 
 export function ToolCard({ icon, title, description, status = "Available" }: ToolCardProps) {
