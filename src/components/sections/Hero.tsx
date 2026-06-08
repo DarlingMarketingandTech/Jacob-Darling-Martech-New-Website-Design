@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { globalCtas } from "@/content/ctas";
+import { heroBadges } from "@/content/trust";
 
 export function Hero() {
   const stages = ["Foundation", "Build", "Scale", "Grow"];
@@ -52,13 +53,7 @@ export function Hero() {
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              {[
-                "Direct access",
-                "No handoffs",
-                "Strategy + implementation",
-                "Indianapolis-based",
-                "Built to be measured",
-              ].map((badge, i) => (
+              {heroBadges.map((badge, i) => (
                 <span
                   key={badge}
                   className="flex items-center gap-2 text-xs font-bold tracking-[0.14em] uppercase font-mono"

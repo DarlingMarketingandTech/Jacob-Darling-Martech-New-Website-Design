@@ -7,43 +7,9 @@ import { Button } from "@/components/ui/Button";
 import { globalCtas } from "@/content/ctas";
 import { createMetadata } from "@/lib/metadata";
 import { seoPages } from "@/content/seo";
+import { proofItems } from "@/content/proof";
 
 export const metadata: Metadata = createMetadata(seoPages.proof);
-
-const proofItems = [
-  {
-    problem: "Website traffic with low inquiry conversion",
-    work: "Rebuilt page hierarchy, proof blocks, and CTA structure",
-    result: "+40% order conversion",
-    relatedService: "Build",
-    ctaLabel: "Get a Website Conversion Review",
-    ctaHref: "/tools",
-  },
-  {
-    problem: "Lead follow-up depended on inbox memory",
-    work: "Mapped lifecycle and implemented CRM routing with automated reminders",
-    result: "+212% qualified leads",
-    relatedService: "Scale",
-    ctaLabel: "Map My Follow-Up System",
-    ctaHref: "/tools",
-  },
-  {
-    problem: "Weak local visibility and inconsistent booking flow",
-    work: "Connected local trust signals, page intent, and booking follow-up",
-    result: "+90% online bookings",
-    relatedService: "Grow",
-    ctaLabel: "Check My Local Visibility",
-    ctaHref: "/tools",
-  },
-  {
-    problem: "Disconnected reporting across campaigns and operations",
-    work: "Aligned attribution, dashboards, and weekly operating rhythm",
-    result: "+45% patient growth",
-    relatedService: "Foundation + Grow",
-    ctaLabel: "Build My Growth Roadmap",
-    ctaHref: "/contact",
-  },
-];
 
 export default function ProofPage() {
   return (

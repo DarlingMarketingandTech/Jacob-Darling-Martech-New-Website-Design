@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const chips = [
   "Direct access",
@@ -33,17 +33,12 @@ export function AboutFounder() {
           </div>
 
           <div className="pt-2">
-            <Eyebrow>ABOUT</Eyebrow>
-
-            <h2 className="dm-h2 mt-4" style={{ color: "var(--charcoal)" }}>
-              One operator. Full accountability.
-            </h2>
-
-            <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--fg2)" }}>
-              I&rsquo;m Jacob Darling. I work directly with growing businesses to connect the parts
-              of marketing that usually drift apart: strategy, websites, CRM, automation, AI
-              workflows, visibility, and reporting.
-            </p>
+            <SectionHeader
+              eyebrow="ABOUT"
+              headline="One operator. Full accountability."
+              lead="I'm Jacob Darling. I work directly with growing businesses to connect the parts of marketing that usually drift apart: strategy, websites, CRM, automation, AI workflows, visibility, and reporting."
+              className="mb-4"
+            />
 
             <p className="mt-3 text-base leading-relaxed" style={{ color: "var(--fg2)" }}>
               Most marketing problems are not traffic problems first. They are disconnected-system

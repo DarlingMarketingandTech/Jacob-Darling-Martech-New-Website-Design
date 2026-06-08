@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Container } from "@/components/layout/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { diagnostics } from "@/content/diagnostics";
 
@@ -17,16 +17,12 @@ export function ToolsLab() {
   return (
     <section id="growth-leak-finder" className="section-padding bg-surface-sunken">
       <Container>
-        <div className="mb-10 max-w-[760px]">
-          <Eyebrow>DIAGNOSTIC STARTING POINTS</Eyebrow>
-          <h2 className="dm-h2 mt-4" style={{ color: "var(--charcoal)" }}>
-            Choose the problem you want to diagnose first.
-          </h2>
-          <p className="dm-lead mt-3" style={{ color: "var(--fg2)" }}>
-            Start with the diagnostic that matches what feels broken: website conversion,
-            follow-up, visibility, automation, or the whole growth system.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="DIAGNOSTIC STARTING POINTS"
+          headline="Choose the problem you want to diagnose first."
+          lead="Start with the diagnostic that matches what feels broken: website conversion, follow-up, visibility, automation, or the whole growth system."
+          className="mb-10"
+        />
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[340px_1fr]">
           <div className="flex flex-col gap-1">

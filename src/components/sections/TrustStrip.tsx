@@ -1,12 +1,5 @@
 import { Container } from "@/components/layout/Container";
-
-const trustPoints = [
-  "One operator, direct accountability",
-  "Strategy and build work in one place",
-  "Website, CRM, automation, and reporting connected",
-  "Local and remote support",
-  "Built for growing businesses, not bloated teams",
-];
+import { trustPoints } from "@/content/trust";
 
 export function TrustStrip() {
   return (

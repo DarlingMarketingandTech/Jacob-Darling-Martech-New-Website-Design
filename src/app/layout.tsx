@@ -5,6 +5,8 @@ import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/lib/site";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 import { cn } from "@/lib/utils";
 
 // Self-hosted via @fontsource-variable/archivo — variable font covers all weights/styles
@@ -68,27 +70,10 @@ const spectral = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  ...createMetadata(seoPages.home),
   title: {
     template: "%s | Darling Martech",
-    default: "Darling Martech | Marketing Systems, Websites & AI Automation",
-  },
-  description:
-    "Darling Martech helps growing businesses connect strategy, websites, CRM, automation, AI, visibility, and reporting into one measurable growth system.",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: site.url,
-    siteName: site.name,
-    title: "Darling Martech | Marketing Systems, Websites & AI Automation",
-    description:
-      "Darling Martech helps growing businesses connect strategy, websites, CRM, automation, AI, visibility, and reporting into one measurable growth system.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Darling Martech | Marketing Systems, Websites & AI Automation",
-    description:
-      "Darling Martech helps growing businesses connect strategy, websites, CRM, automation, AI, visibility, and reporting into one measurable growth system.",
+    default: seoPages.home.title,
   },
 };
 

@@ -1,53 +1,20 @@
-import { ShoppingCart, UserPlus, CalendarCheck, HeartPulse } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { globalCtas } from "@/content/ctas";
-
-const wins = [
-  {
-    label: "Conversion uplift",
-    detail: "Website and offer clarity connected to measurable order growth.",
-    who: "Ecommerce",
-    Icon: ShoppingCart,
-  },
-  {
-    label: "Lead quality improvement",
-    detail: "Clearer positioning and automated follow-up producing stronger qualified leads.",
-    who: "Professional Services",
-    Icon: UserPlus,
-  },
-  {
-    label: "Booking growth",
-    detail: "Streamlined booking paths and CRM follow-up reducing friction to first appointment.",
-    who: "Local Services",
-    Icon: CalendarCheck,
-  },
-  {
-    label: "Patient acquisition",
-    detail: "Connected visibility, website, and intake systems supporting consistent new-patient growth.",
-    who: "Healthcare",
-    Icon: HeartPulse,
-  },
-];
+import { wins } from "@/content/proof";
 
 export function ProofSection() {
   return (
     <section className="section-padding bg-navy">
       <Container>
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-[760px]">
-            <Eyebrow color="var(--clay)">SELECTED PROOF</Eyebrow>
-            <h2 className="dm-h2 mt-4" style={{ color: "var(--fg-on-dark-1)" }}>
-              Proof that connected systems work harder.
-            </h2>
-            <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--fg-on-dark-2)" }}>
-              Every project starts with a bottleneck. The work is not more activity for its own
-              sake. It is a clearer path from interest to action, follow-up, measurement, and
-              growth.
-            </p>
-          </div>
-        </div>
+        <SectionHeader
+          eyebrow="SELECTED PROOF"
+          eyebrowColor="var(--clay)"
+          headline="Proof that connected systems work harder."
+          lead="Every project starts with a bottleneck. The work is not more activity for its own sake. It is a clearer path from interest to action, follow-up, measurement, and growth."
+          dark
+        />
 
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {wins.map((w) => (
@@ -84,8 +51,8 @@ export function ProofSection() {
         </div>
 
         <p className="mt-10 text-sm leading-relaxed" style={{ color: "var(--fg-on-dark-3)" }}>
-          Detailed verified case studies — with named outcomes, specific context, and
-          client permission — are being prepared and will be published in Phase 5.
+          Outcomes are real. Full case studies — with named context and verified metrics — are
+          published as client permission is granted.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4">

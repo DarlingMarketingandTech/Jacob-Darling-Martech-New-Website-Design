@@ -73,11 +73,13 @@ export const seoPages: Record<string, SeoPage> = {
   privacy: {
     path: "/privacy",
     title: "Privacy Policy | Darling Martech",
-    description: "Privacy policy for Darling Martech.",
+    description:
+      "Privacy policy for Darling Martech. How we collect, use, and protect your personal data when you visit our website or work with us.",
   },
   terms: {
     path: "/terms",
     title: "Terms of Use | Darling Martech",
-    description: "Terms of use for Darling Martech.",
+    description:
+      "Terms of use for Darling Martech. Our policies, disclaimers, and conditions governing your use of our website and services.",
   },
 };

@@ -3,30 +3,28 @@
 import { useState } from "react";
 import { Compass, LayoutGrid, Workflow, TrendingUp, Check } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { servicePaths } from "@/content/services";
 
-const stages = [
+const stageMetadata = [
   {
     n: "01",
     key: "Foundation",
     icon: Compass,
     description:
       "Clarify the bottleneck, position the offer, and map the highest-leverage path forward.",
-    items: ["Growth system diagnosis", "Positioning and message clarity", "Prioritized roadmap"],
   },
   {
     n: "02",
     key: "Build",
     icon: LayoutGrid,
     description: "Turn the website into a clearer path from attention to action.",
-    items: ["Page architecture", "Conversion copy", "Proof and CTA structure"],
   },
   {
     n: "03",
     key: "Scale",
     icon: Workflow,
     description: "Connect lead capture, follow-up, CRM, automation, and AI-assisted workflows.",
-    items: ["CRM and lifecycle setup", "Automated follow-up", "AI-assisted operations"],
   },
   {
     n: "04",
@@ -34,9 +32,15 @@ const stages = [
     icon: TrendingUp,
     description:
       "Improve visibility, content, reporting, and measurement so the system keeps learning.",
-    items: ["Local and AI search signals", "Content and demand support", "Attribution and reporting"],
   },
 ];
+
+const stages = stageMetadata.map((meta) => ({
+  ...meta,
+  items:
+    servicePaths.find((sp) => sp.stage === meta.key)?.includes ||
+    [],
+}));
 
 export function HowIHelp() {
   const [active, setActive] = useState(0);
@@ -44,16 +48,14 @@ export function HowIHelp() {
   return (
     <section className="section-padding dot-texture bg-charcoal">
       <Container>
-        <div className="max-w-[820px]">
-          <Eyebrow color="var(--clay)">THE OPERATOR LAYER</Eyebrow>
-          <h2 className="dm-h2 mt-4" style={{ color: "var(--fg-on-dark-1)" }}>
-            The Operator Layer connects the parts that usually drift apart.
-          </h2>
-          <p className="dm-lead mt-3" style={{ color: "var(--fg-on-dark-2)" }}>
-            Most growth problems are not fixed by another campaign. They are fixed by connecting
-            the layer underneath it: offer, website, CRM, automation, visibility, and reporting.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="THE OPERATOR LAYER"
+          eyebrowColor="var(--clay)"
+          headline="The Operator Layer connects the parts that usually drift apart."
+          lead="Most growth problems are not fixed by another campaign. They are fixed by connecting the layer underneath it: offer, website, CRM, automation, visibility, and reporting."
+          dark
+          className="max-w-[820px]"
+        />
 
         <div className="relative mt-14">
           <div

@@ -1,0 +1,43 @@
+{
+  "changes_this_session": [],
+  "cwd": "C:\\dev\\Jacob-Darling-Martech-New-Website-Design",
+  "duration_minutes": 1,
+  "ended_at": "2026-06-08T13:44:46Z",
+  "event_seq": 0,
+  "fork_count": 0,
+  "git": {
+    "branch": "main",
+    "last_commit": "92321e0",
+    "uncommitted_changes": 0
+  },
+  "harness_mem": {
+    "healthy": false,
+    "last_checked": "2026-06-08T13:43:45Z",
+    "last_error": "daemon-unreachable"
+  },
+  "last_event_id": "",
+  "last_message_hash": "36a5c2b8d1274d13",
+  "last_message_length": 876,
+  "memory_logged": true,
+  "orchestration": {
+    "max_state_retries": 3,
+    "retry_backoff_seconds": 10
+  },
+  "parent_session_id": null,
+  "plans": {
+    "completed_tasks": 0,
+    "exists": false,
+    "last_modified": 0,
+    "pending_tasks": 0,
+    "todo_tasks": 0,
+    "wip_tasks": 0
+  },
+  "project_name": "Jacob-Darling-Martech-New-Website-Design",
+  "prompt_seq": 0,
+  "resume_token": "resume-1780926226637999400",
+  "session_id": "session-1780926226637999400",
+  "started_at": "2026-06-08T13:43:45Z",
+  "state": "stopped",
+  "state_version": 1,
+  "updated_at": "2026-06-08T13:43:45Z"
+}

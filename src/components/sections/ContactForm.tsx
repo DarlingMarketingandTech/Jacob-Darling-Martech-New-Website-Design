@@ -14,10 +14,42 @@ const nextStepOptions = [
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsLoading(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      websiteUrl: formData.get("websiteUrl"),
+      broken: formData.get("broken"),
+      improve: formData.get("improve"),
+      nextStep: formData.get("nextStep"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send request");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (submitted) {
@@ -174,12 +206,19 @@ export function ContactForm() {
       </div>
 
       <div className="mt-6">
-        <Button type="submit" variant="primary" size="md">
-          Request Diagnostic
+        <Button type="submit" variant="primary" size="md" disabled={isLoading}>
+          {isLoading ? "Sending..." : "Request Diagnostic"}
         </Button>
-        <p className="mt-3 text-xs" style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}>
-          Response within one business day. No pressure.
-        </p>
+        {error && (
+          <p className="mt-3 text-xs" style={{ color: "var(--crimson)" }}>
+            {error}
+          </p>
+        )}
+        {!error && (
+          <p className="mt-3 text-xs" style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}>
+            Response within one business day. No pressure.
+          </p>
+        )}
       </div>
     </form>
   );
