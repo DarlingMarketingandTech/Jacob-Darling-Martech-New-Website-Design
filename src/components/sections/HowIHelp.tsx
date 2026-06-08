@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useState } from "react";
 import { Compass, LayoutGrid, Workflow, TrendingUp, Check } from "lucide-react";
-import { motion, useInView, useReducedMotion } from "motion/react";
+import { motion, AnimatePresence, useInView, useReducedMotion } from "motion/react";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { servicePaths } from "@/content/services";
@@ -139,17 +139,23 @@ export function HowIHelp() {
           </motion.div>
         </div>
 
-        <div
-          className="mt-10 grid grid-cols-1 gap-8 rounded-[var(--radius-lg)] border-l-[3px] border p-8 lg:grid-cols-[1fr_1.4fr]"
-          style={{
-            background: "var(--surface-dark)",
-            borderColor: "var(--line-on-dark)",
-            borderLeftColor: "var(--crimson)",
-          }}
-          role="tabpanel"
-          id={`stage-panel-${stages[active].key}`}
-          aria-labelledby={`stage-tab-${stages[active].key}`}
-        >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            className="mt-10 grid grid-cols-1 gap-8 rounded-[var(--radius-lg)] border-l-[3px] border p-8 lg:grid-cols-[1fr_1.4fr]"
+            style={{
+              background: "var(--surface-dark)",
+              borderColor: "var(--line-on-dark)",
+              borderLeftColor: "var(--crimson)",
+            }}
+            role="tabpanel"
+            id={`stage-panel-${stages[active].key}`}
+            aria-labelledby={`stage-tab-${stages[active].key}`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
+          >
           <div>
             <div
               className="text-xs font-bold tracking-wider font-mono"
@@ -186,7 +192,8 @@ export function HowIHelp() {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
+        </AnimatePresence>
       </Container>
     </section>
   );

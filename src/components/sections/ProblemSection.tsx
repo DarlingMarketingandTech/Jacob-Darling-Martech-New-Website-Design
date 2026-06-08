@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useState } from "react";
 import { Plus, Minus, CornerDownRight } from "lucide-react";
-import { motion, useInView, useReducedMotion } from "motion/react";
+import { motion, AnimatePresence, useInView, useReducedMotion } from "motion/react";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -96,7 +96,12 @@ export function ProblemSection() {
             {breakdowns.map((b, i) => {
               const isOpen = open === i;
               return (
-                <div key={b.id} className="border-b" style={{ borderColor: "var(--line)" }}>
+                <motion.div
+                  key={b.id}
+                  className="border-b"
+                  style={{ borderColor: "var(--line)" }}
+                  layout
+                >
                   <button
                     className="flex w-full items-center gap-4 py-6 text-left"
                     onClick={() => setOpen(isOpen ? -1 : i)}
@@ -124,13 +129,18 @@ export function ProblemSection() {
                     )}
                   </button>
 
-                  {isOpen && (
-                    <div
-                      className="pb-6 pl-10"
-                      id={`accordion-panel-${b.id}`}
-                      role="region"
-                      aria-labelledby={`accordion-button-${b.id}`}
-                    >
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        className="pb-6 pl-10"
+                        id={`accordion-panel-${b.id}`}
+                        role="region"
+                        aria-labelledby={`accordion-button-${b.id}`}
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
+                      >
                       <span
                         className="inline-block rounded-[var(--radius-pill)] border px-3 py-1 text-[11px] font-bold tracking-[0.14em] uppercase"
                         style={{
@@ -161,9 +171,10 @@ export function ProblemSection() {
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  )}
-                </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               );
             })}
           </div>
