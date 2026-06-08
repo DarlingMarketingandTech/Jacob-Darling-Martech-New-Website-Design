@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  .card{width:700px;box-sizing:border-box;padding:30px 34px;background:var(--cream);font-family:var(--font-sans);display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  button{font-family:var(--font-sans);font-weight:700;font-size:14px;cursor:pointer;border:0;display:inline-flex;align-items:center;gap:9px;transition:all .18s var(--ease-out)}
+  .primary{background:var(--crimson);color:#fff;padding:14px 26px;border-radius:8px}
+  .primary:hover{background:var(--burgundy)}
+  .secondary{background:transparent;color:var(--crimson);border:1.5px solid var(--crimson);padding:12.5px 24px;border-radius:8px}
+  .secondary:hover{background:var(--crimson);color:#fff}
+  .link{background:transparent;color:var(--crimson);padding:6px 0;font-weight:700;letter-spacing:.02em}
+  .link svg{transition:transform .18s var(--ease-out)}
+  .link:hover svg{transform:translateX(4px)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <button class="primary">Book a Diagnostic Call</button>
+    <button class="secondary">See Case Studies</button>
+    <button class="link">Run the Growth Audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+  </div>
+</body>
+</html>

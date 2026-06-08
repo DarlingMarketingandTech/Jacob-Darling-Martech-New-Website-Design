@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  .card{width:700px;box-sizing:border-box;padding:22px 30px;background:var(--cream);font-family:var(--font-sans);
+    display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .panel{padding:8px 20px}
+  .panel:first-child{border-right:1px solid var(--line)}
+  .lbl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+  .ln{display:block;margin:7px 0;line-height:1.1}
+  .t1{font-weight:800;font-size:18px}
+  .t2{font-weight:500;font-size:15px}
+  .t3{font-weight:500;font-size:13px}
+  .acc{font-weight:800;font-size:16px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="panel" style="background:var(--cream)">
+      <div class="lbl" style="color:var(--fg3)">Text on light</div>
+      <span class="ln t1" style="color:#11151C">fg1 — primary #11151C</span>
+      <span class="ln t2" style="color:#44515F">fg2 — secondary #44515F</span>
+      <span class="ln t3" style="color:#6C7783">fg3 — muted #6C7783</span>
+      <span class="ln acc" style="color:#990000">fg-accent — crimson</span>
+    </div>
+    <div class="panel" style="background:var(--navy);border-radius:10px">
+      <div class="lbl" style="color:var(--fg-on-dark-3)">Text on dark</div>
+      <span class="ln t1" style="color:#F5F3EE">fg1 — primary #F5F3EE</span>
+      <span class="ln t2" style="color:#AAB4C0">fg2 — secondary #AAB4C0</span>
+      <span class="ln t3" style="color:#6E7A88">fg3 — muted #6E7A88</span>
+      <span class="ln acc" style="color:#C47E61">accent — clay/copper</span>
+    </div>
+  </div>
+</body>
+</html>

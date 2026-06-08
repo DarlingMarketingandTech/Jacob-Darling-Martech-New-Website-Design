@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  html,body{margin:0}
+  .card{width:700px;box-sizing:border-box;padding:28px 30px;background:var(--cream);font-family:var(--font-sans)}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .it{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 4px;border-radius:8px;background:#fff;border:1px solid var(--line)}
+  .it svg{width:26px;height:26px;color:var(--crimson)}
+  .it span{font-family:var(--font-mono);font-size:9px;color:var(--fg3);text-align:center}
+  .note{font-size:11px;color:var(--fg3);margin-top:14px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="grid">
+      <div class="it"><i data-lucide="target"></i><span>strategy</span></div>
+      <div class="it"><i data-lucide="trending-up"></i><span>growth</span></div>
+      <div class="it"><i data-lucide="share-2"></i><span>systems</span></div>
+      <div class="it"><i data-lucide="user"></i><span>access</span></div>
+      <div class="it"><i data-lucide="lightbulb"></i><span>creative</span></div>
+      <div class="it"><i data-lucide="mountain"></i><span>grounded</span></div>
+      <div class="it"><i data-lucide="search"></i><span>visibility</span></div>
+      <div class="it"><i data-lucide="bar-chart-3"></i><span>reporting</span></div>
+      <div class="it"><i data-lucide="workflow"></i><span>automation</span></div>
+      <div class="it"><i data-lucide="gauge"></i><span>diagnostic</span></div>
+      <div class="it"><i data-lucide="map"></i><span>roadmap</span></div>
+      <div class="it"><i data-lucide="activity"></i><span>attribution</span></div>
+      <div class="it"><i data-lucide="layout-grid"></i><span>website</span></div>
+      <div class="it"><i data-lucide="check-circle-2"></i><span>proof</span></div>
+    </div>
+    <div class="note">Lucide — single-weight ~1.75px strokes, crimson or charcoal. Substitution flagged in README.</div>
+  </div>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

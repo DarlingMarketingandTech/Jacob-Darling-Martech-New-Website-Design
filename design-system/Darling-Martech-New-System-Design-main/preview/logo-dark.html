@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  background:#141418;font-family:'Barlow',sans-serif;
+  padding:48px 32px;min-height:100vh;
+  display:flex;flex-direction:column;gap:32px;align-items:center;
+}
+.lbl{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:0.18em;text-transform:uppercase;
+}
+.card{
+  max-width:760px;width:100%;border-radius:18px;padding:44px 52px;
+  display:flex;flex-direction:column;gap:44px;
+}
+.card-dark{background:#1C1C22;border:1px solid rgba(255,255,255,0.07);}
+.card-light{background:#FFFFFF;border:1px solid #E8ECF1;}
+.divider-d{height:1px;background:rgba(255,255,255,0.07);}
+.divider-l{height:1px;background:#E8ECF1;}
+
+/* ===== LOGO LOCKUP ===== */
+.lockup{display:flex;align-items:center;gap:24px;}
+.lockup-sm{display:flex;align-items:center;gap:16px;}
+
+/* ===== WORDMARK ===== */
+.wordmark{display:flex;flex-direction:column;gap:3px;}
+.wm-name{
+  font-family:'Barlow',sans-serif;
+  line-height:1;
+  white-space:nowrap;
+}
+.wm-darling{font-weight:900;}
+.wm-martech{font-weight:500;}
+.wm-tagline{
+  font-family:'Barlow',sans-serif;font-weight:400;
+  letter-spacing:0.22em;text-transform:uppercase;
+  line-height:1;white-space:nowrap;
+}
+
+/* On dark */
+.on-dark .wm-darling{color:#FFFFFF;}
+.on-dark .wm-martech{color:rgba(255,255,255,0.72);}
+.on-dark .wm-tagline{color:rgba(255,255,255,0.38);}
+
+/* On light */
+.on-light .wm-darling{color:#141418;}
+.on-light .wm-martech{color:rgba(20,20,24,0.68);}
+.on-light .wm-tagline{color:rgba(20,20,24,0.40);}
+
+/* Nav context */
+.nav-bar{
+  max-width:760px;width:100%;border-radius:12px;
+  padding:14px 28px;display:flex;align-items:center;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.nav-bar-light{
+  max-width:760px;width:100%;border-radius:12px;
+  padding:14px 28px;display:flex;align-items:center;
+  border:1px solid #E8ECF1;background:#fff;
+}
+.nav-links{display:flex;gap:28px;margin:0 auto;}
+.nav-links span{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;
+  text-transform:uppercase;font-weight:500;color:rgba(255,255,255,0.35);
+}
+.nav-links-l span{color:#9CA3AF;}
+.nav-cta{
+  background:#C41230;color:#fff;border-radius:999px;
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;
+  letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
+  padding:9px 18px;white-space:nowrap;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================= DARK CARD ============================= -->
+<div class="card card-dark">
+  <div class="lbl" style="color:rgba(255,255,255,0.22);">Logo on dark — Darling Martech</div>
+
+  <!-- DISPLAY size -->
+  <div>
+    <div class="lbl" style="color:rgba(255,255,255,0.16);margin-bottom:22px;">Display · hero / print</div>
+    <div class="lockup on-dark">
+      <!-- SVG MARK (large) -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="88" height="88" overflow="visible" style="flex-shrink:0;">
+        <g fill="#C41230">
+          <!-- Left spine -->
+          <rect x="20" y="44" width="26" height="158"/>
+          <!-- Bottom bar -->
+          <rect x="20" y="176" width="126" height="26"/>
+          <!-- Top bar -->
+          <rect x="20" y="44" width="106" height="26"/>
+          <!-- Right arc wall -->
+          <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+          <!-- Arrow shaft -->
+          <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+          <!-- Arrow head -->
+          <polygon points="210,-2 191,27 169,8"/>
+          <!-- Chart line (appears inside D interior) -->
+          <polyline points="58,160 80,122 104,140 150,86"
+            fill="none" stroke="#C41230" stroke-width="6.5"
+            stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          <circle cx="80" cy="122" r="8.5"/>
+          <circle cx="104" cy="140" r="8.5"/>
+        </g>
+      </svg>
+      <div class="wordmark">
+        <div class="wm-name" style="font-size:42px;">
+          <span class="wm-darling">DARLING </span><span class="wm-martech">MARTECH</span>
+        </div>
+        <div class="wm-tagline" style="font-size:11px;">Martech Solutions</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-d"></div>
+
+  <!-- STANDARD size -->
+  <div>
+    <div class="lbl" style="color:rgba(255,255,255,0.16);margin-bottom:18px;">Standard · sidebar / email · 56px</div>
+    <div class="lockup on-dark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="56" height="56" overflow="visible" style="flex-shrink:0;">
+        <g fill="#C41230">
+          <rect x="20" y="44" width="26" height="158"/>
+          <rect x="20" y="176" width="126" height="26"/>
+          <rect x="20" y="44" width="106" height="26"/>
+          <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+          <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+          <polygon points="210,-2 191,27 169,8"/>
+          <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          <circle cx="80" cy="122" r="8.5"/>
+          <circle cx="104" cy="140" r="8.5"/>
+        </g>
+      </svg>
+      <div class="wordmark">
+        <div class="wm-name" style="font-size:26px;">
+          <span class="wm-darling">DARLING </span><span class="wm-martech">MARTECH</span>
+        </div>
+        <div class="wm-tagline" style="font-size:9px;">Martech Solutions</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-d"></div>
+
+  <!-- NAV / SMALL size -->
+  <div>
+    <div class="lbl" style="color:rgba(255,255,255,0.16);margin-bottom:18px;">Nav / compact · 36px</div>
+    <div class="lockup-sm on-dark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="36" height="36" overflow="visible" style="flex-shrink:0;">
+        <g fill="#C41230">
+          <rect x="20" y="44" width="26" height="158"/>
+          <rect x="20" y="176" width="126" height="26"/>
+          <rect x="20" y="44" width="106" height="26"/>
+          <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+          <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+          <polygon points="210,-2 191,27 169,8"/>
+          <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          <circle cx="80" cy="122" r="8.5"/>
+          <circle cx="104" cy="140" r="8.5"/>
+        </g>
+      </svg>
+      <div class="wordmark">
+        <div class="wm-name" style="font-size:17px;">
+          <span class="wm-darling">DARLING </span><span class="wm-martech">MARTECH</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mark alone -->
+  <div class="divider-d"></div>
+  <div>
+    <div class="lbl" style="color:rgba(255,255,255,0.16);margin-bottom:18px;">Mark alone</div>
+    <div style="display:flex;gap:28px;align-items:flex-end;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="80" height="80" overflow="visible">
+        <g fill="#C41230">
+          <rect x="20" y="44" width="26" height="158"/>
+          <rect x="20" y="176" width="126" height="26"/>
+          <rect x="20" y="44" width="106" height="26"/>
+          <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+          <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+          <polygon points="210,-2 191,27 169,8"/>
+          <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          <circle cx="80" cy="122" r="8.5"/>
+          <circle cx="104" cy="140" r="8.5"/>
+        </g>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="54" height="54" overflow="visible">
+        <g fill="#C41230">
+          <rect x="20" y="44" width="26" height="158"/>
+          <rect x="20" y="176" width="126" height="26"/>
+          <rect x="20" y="44" width="106" height="26"/>
+          <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+          <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+          <polygon points="210,-2 191,27 169,8"/>
+          <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          <circle cx="80" cy="122" r="8.5"/>
+          <circle cx="104" cy="140" r="8.5"/>
+        </g>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="36" height="36" overflow="visible">
+        <g fill="#C41230">
+          <rect x="20" y="44" width="26" height="158"/>
+          <rect x="20" y="176" width="126" height="26"/>
+          <rect x="20" y="44" width="106" height="26"/>
+          <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+          <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+          <polygon points="210,-2 191,27 169,8"/>
+          <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+          <circle cx="80" cy="122" r="8.5"/>
+          <circle cx="104" cy="140" r="8.5"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= LIGHT CARD ============================= -->
+<div class="card card-light">
+  <div class="lbl" style="color:#C5C9D0;">Primary logo — on light / white</div>
+
+  <div class="lockup on-light">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="88" height="88" overflow="visible" style="flex-shrink:0;">
+      <g fill="#C41230">
+        <rect x="20" y="44" width="26" height="158"/>
+        <rect x="20" y="176" width="126" height="26"/>
+        <rect x="20" y="44" width="106" height="26"/>
+        <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+        <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+        <polygon points="210,-2 191,27 169,8"/>
+        <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+        <circle cx="80" cy="122" r="8.5"/>
+        <circle cx="104" cy="140" r="8.5"/>
+      </g>
+    </svg>
+    <div class="wordmark">
+      <div class="wm-name" style="font-size:42px;">
+        <span class="wm-darling">DARLING </span><span class="wm-martech">MARTECH</span>
+      </div>
+      <div class="wm-tagline" style="font-size:11px;">Martech Solutions</div>
+    </div>
+  </div>
+
+  <div class="divider-l"></div>
+
+  <div class="lockup on-light">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="52" height="52" overflow="visible" style="flex-shrink:0;">
+      <g fill="#C41230">
+        <rect x="20" y="44" width="26" height="158"/>
+        <rect x="20" y="176" width="126" height="26"/>
+        <rect x="20" y="44" width="106" height="26"/>
+        <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+        <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+        <polygon points="210,-2 191,27 169,8"/>
+        <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+        <circle cx="80" cy="122" r="8.5"/>
+        <circle cx="104" cy="140" r="8.5"/>
+      </g>
+    </svg>
+    <div class="wordmark">
+      <div class="wm-name" style="font-size:26px;">
+        <span class="wm-darling">DARLING </span><span class="wm-martech">MARTECH</span>
+      </div>
+      <div class="wm-tagline" style="font-size:9px;">Martech Solutions</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= NAV CONTEXTS ============================= -->
+<!-- Dark nav -->
+<div class="nav-bar" style="background:#141418;">
+  <div class="lockup-sm on-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="34" height="34" overflow="visible" style="flex-shrink:0;">
+      <g fill="#C41230">
+        <rect x="20" y="44" width="26" height="158"/>
+        <rect x="20" y="176" width="126" height="26"/>
+        <rect x="20" y="44" width="106" height="26"/>
+        <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+        <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+        <polygon points="210,-2 191,27 169,8"/>
+        <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+        <circle cx="80" cy="122" r="8.5"/>
+        <circle cx="104" cy="140" r="8.5"/>
+      </g>
+    </svg>
+    <div class="wm-name on-dark" style="font-size:16px;">
+      <span class="wm-darling">DARLING </span><span class="wm-martech">MARTECH</span>
+    </div>
+  </div>
+  <div class="nav-links" style="margin:0 auto;">
+    <span>Solutions</span><span>Approach</span><span>Tools</span><span>About</span>
+  </div>
+  <div class="nav-cta">Book a Diagnostic</div>
+</div>
+
+<!-- Light nav -->
+<div class="nav-bar-light">
+  <div class="lockup-sm on-light">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -22 222 246" width="34" height="34" overflow="visible" style="flex-shrink:0;">
+      <g fill="#C41230">
+        <rect x="20" y="44" width="26" height="158"/>
+        <rect x="20" y="176" width="126" height="26"/>
+        <rect x="20" y="44" width="106" height="26"/>
+        <path d="M 126,44 Q 200,44 200,122 Q 200,202 126,202 L 126,176 Q 172,176 172,122 Q 172,70 126,70 Z"/>
+        <line x1="130" y1="57" x2="198" y2="7" stroke="#C41230" stroke-width="23" stroke-linecap="butt"/>
+        <polygon points="210,-2 191,27 169,8"/>
+        <polyline points="58,160 80,122 104,140 150,86" fill="none" stroke="#C41230" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+        <circle cx="80" cy="122" r="8.5"/>
+        <circle cx="104" cy="140" r="8.5"/>
+      </g>
+    </svg>
+    <div class="wm-name on-light" style="font-size:16px;">
+      <span class="wm-darling">DARLING </span><span class="wm-martech">MARTECH</span>
+    </div>
+  </div>
+  <div class="nav-links nav-links-l" style="margin:0 auto;">
+    <span>Solutions</span><span>Approach</span><span>Tools</span><span>About</span>
+  </div>
+  <div class="nav-cta">Book a Diagnostic</div>
+</div>
+
+</body>
+</html>

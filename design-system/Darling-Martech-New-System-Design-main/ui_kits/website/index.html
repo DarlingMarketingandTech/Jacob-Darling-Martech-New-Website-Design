@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darling Martech — Marketing, Websites, AI, Growth</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--navy); }
+  body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .dm-crimson { color: var(--crimson) !important; }
+  .dm-clay { color: var(--clay) !important; }
+  .dm-fg3 { color: var(--fg3) !important; }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--crimson); outline-offset: 3px; }
+  .dm-burger { display: none !important; }
+
+  @media (max-width: 880px) {
+    .dm-navlinks, .dm-nav-cta { display: none !important; }
+    .dm-burger { display: inline-flex !important; }
+    .dm-hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .dm-prob-cards, .dm-proof-grid { grid-template-columns: 1fr 1fr !important; }
+    .dm-breaks, .dm-stage-detail, .dm-lab, .dm-about { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .dm-footer { grid-template-columns: 1fr 1fr !important; }
+    .dm-stage-rail { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
+    .dm-rail-line { display: none !important; }
+  }
+  @media (max-width: 560px) {
+    .dm-prob-cards, .dm-proof-grid, .dm-footer { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="ui.jsx"></script>
+<script type="text/babel" src="Nav.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="TrustStrip.jsx"></script>
+<script type="text/babel" src="ProblemSection.jsx"></script>
+<script type="text/babel" src="HowIHelp.jsx"></script>
+<script type="text/babel" src="ProofSection.jsx"></script>
+<script type="text/babel" src="ToolsLab.jsx"></script>
+<script type="text/babel" src="AboutFounder.jsx"></script>
+<script type="text/babel" src="CTASection.jsx"></script>
+<script type="text/babel">
+  function App() {
+    React.useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
+    return (
+      <React.Fragment>
+        <Nav />
+        <Hero />
+        <TrustStrip />
+        <ProblemSection />
+        <HowIHelp />
+        <ProofSection />
+        <ToolsLab />
+        <AboutFounder />
+        <CTASection />
+        <Footer />
+      </React.Fragment>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  .wrap{width:700px;box-sizing:border-box;padding:26px 30px;background:var(--cream);font-family:var(--font-sans);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .c{border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
+  .light{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-md)}
+  .dark{background:#131C2B;border:1px solid var(--line-on-dark);box-shadow:var(--shadow-dark)}
+  .crim{background:#fff;border:1.5px solid var(--crimson);box-shadow:var(--shadow-md)}
+  .ic{width:34px;height:34px;color:var(--crimson)}
+  .t{font-weight:800;font-size:16px}
+  .d{font-size:13px;line-height:1.5}
+  .light .t,.crim .t{color:var(--charcoal)} .light .d,.crim .d{color:var(--fg2)}
+  .dark .t{color:#F5F3EE} .dark .d{color:#AAB4C0}
+  .span2{grid-column:1 / -1}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="c light">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+      <div class="t">Website conversion</div>
+      <div class="d">Structure, proof, and next-step logic aligned to move intent into action.</div>
+    </div>
+    <div class="c crim">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 7.5 11 16M16.5 7.5 13 16"/></svg>
+      <div class="t">CRM + automation</div>
+      <div class="d">Lead capture and follow-up routed on purpose — emphasized crimson border.</div>
+    </div>
+    <div class="c dark span2">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="5"/><rect x="12" y="8" width="3" height="9"/><rect x="17" y="5" width="3" height="12"/></svg>
+      <div class="t">Reporting — dark surface</div>
+      <div class="d">Raised navy card for proof &amp; data sections. Quiet hairline, deep soft shadow.</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* ============================================================================
+   DARLING MARTECH — Colors & Type Foundation
+   ----------------------------------------------------------------------------
+   One accountable operator layer for growth. Brand feel: premium editorial,
+   creative operator meets growth architect. Indiana crimson, deep charcoal /
+   midnight navy, cream paper, muted grays, subtle copper.
+
+   Typography NOTE: The brand guide marks the type system "to be defined"
+   (premium, editorial feel). We pair ARCHIVO (grotesque sans — hero, UI, body,
+   labels) with SPECTRAL (editorial serif — quotes, display moments). These are
+   Google Fonts substitutions chosen to match the guide's specimens; swap for
+   licensed faces if/when the final pairing is locked.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* ---------------------------------------------------------------- COLORS */
+  /* Primary palette */
+  --crimson:        #990000;  /* Indiana crimson — primary brand */
+  --charcoal:       #11151C;  /* near-black charcoal */
+  --navy:           #0B1320;  /* midnight navy — deepest ground */
+  --cream:          #F5F3EE;  /* soft cream paper */
+  --white:          #FFFFFF;  /* clean white */
+
+  /* Expanded accent palette — use intentionally for hierarchy & data viz */
+  --burgundy:       #6B0F1A;  /* deep crimson, pressed/active states */
+  --dusty-rose:     #B14B5A;
+  --clay:           #C47E61;  /* the "subtle copper" accent */
+  --warm-gray:      #B88F97;
+  --slate-blue:     #3A4A63;
+  --steel-blue:     #617D99;
+  --cool-sage:      #6F7F76;
+  --light-taupe:    #D7D2CA;
+
+  /* Crimson tint ramp (derived) */
+  --crimson-700:    #7A0000;
+  --crimson-600:    #990000;
+  --crimson-500:    #B71212;
+  --crimson-100:    #F3DADA;  /* faint crimson wash on cream */
+
+  /* ---------------------------------------------------- SEMANTIC: SURFACES */
+  --bg-page:        var(--cream);     /* default light editorial ground */
+  --bg-page-dark:   var(--navy);      /* dark sections / hero */
+  --bg-charcoal:    var(--charcoal);
+  --surface:        var(--white);     /* cards on light */
+  --surface-dark:   #131C2B;          /* cards on dark (navy raised) */
+  --surface-sunken: #ECE9E1;          /* sunken cream */
+
+  /* ---------------------------------------------------- SEMANTIC: TEXT */
+  --fg1:            var(--charcoal);  /* primary text on light */
+  --fg2:            #44515F;          /* secondary text on light */
+  --fg3:            #6C7783;          /* muted / captions on light */
+  --fg-on-dark-1:   #F5F3EE;          /* primary text on dark */
+  --fg-on-dark-2:   #AAB4C0;          /* secondary text on dark */
+  --fg-on-dark-3:   #6E7A88;          /* muted on dark */
+  --fg-accent:      var(--crimson);   /* crimson emphasis text */
+
+  /* ---------------------------------------------------- SEMANTIC: LINES */
+  --line:           #DAD6CC;          /* hairline on cream */
+  --line-strong:    #C6C1B5;
+  --line-on-dark:   rgba(245,243,238,0.14);
+  --rule-crimson:   var(--crimson);   /* editorial crimson divider */
+
+  /* ---------------------------------------------------- BADGES / STATUS */
+  --badge-neutral-bg: var(--charcoal);
+  --badge-neutral-fg: var(--cream);
+  --badge-crimson-bg: var(--crimson);
+  --badge-crimson-fg: var(--white);
+
+  /* ============================================================ TYPE */
+  --font-sans:    'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif:   'Spectral', Georgia, 'Times New Roman', serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Weights */
+  --w-regular: 400;
+  --w-medium:  500;
+  --w-semi:    600;
+  --w-bold:    700;
+  --w-xbold:   800;
+  --w-black:   900;
+
+  /* Fluid type scale (editorial, generous) */
+  --t-display:  clamp(3rem, 6vw, 5.25rem);   /* hero / SOLO MARKETER */
+  --t-h1:       clamp(2.25rem, 4vw, 3.5rem);
+  --t-h2:       clamp(1.75rem, 2.6vw, 2.5rem);
+  --t-h3:       clamp(1.3rem, 1.7vw, 1.6rem);
+  --t-quote:    clamp(1.75rem, 3vw, 2.6rem);  /* serif editorial quote */
+  --t-lead:     clamp(1.125rem, 1.4vw, 1.375rem);
+  --t-body:     1.0625rem;
+  --t-small:    0.9375rem;
+  --t-label:    0.75rem;   /* uppercase tracked labels / eyebrows */
+
+  /* Letter-spacing */
+  --ls-label:   0.16em;    /* eyebrows, badges, nav-caps */
+  --ls-display: -0.02em;   /* tight headline tracking */
+  --ls-tight:   -0.01em;
+
+  /* Line-heights */
+  --lh-tight:   1.04;
+  --lh-snug:    1.18;
+  --lh-body:    1.62;
+
+  /* ============================================================ SHAPE */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  14px;
+  --radius-pill: 999px;
+
+  /* Spacing scale (8pt base) */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+  --space-9: 96px; --space-10: 128px;
+
+  /* ============================================================ ELEVATION */
+  --shadow-sm: 0 1px 2px rgba(11,19,32,0.06), 0 1px 3px rgba(11,19,32,0.05);
+  --shadow-md: 0 4px 12px rgba(11,19,32,0.08), 0 2px 4px rgba(11,19,32,0.05);
+  --shadow-lg: 0 18px 48px rgba(11,19,32,0.16), 0 4px 12px rgba(11,19,32,0.08);
+  --shadow-dark: 0 24px 60px rgba(0,0,0,0.45);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+}
+
+/* ============================================================ ELEMENT MAP */
+.dm-display { font-family: var(--font-sans); font-weight: var(--w-black);
+  font-size: var(--t-display); line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display); text-transform: uppercase; }
+
+.dm-h1 { font-family: var(--font-sans); font-weight: var(--w-xbold);
+  font-size: var(--t-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-display); }
+
+.dm-h2 { font-family: var(--font-sans); font-weight: var(--w-bold);
+  font-size: var(--t-h2); line-height: var(--lh-snug); letter-spacing: var(--ls-tight); }
+
+.dm-h3 { font-family: var(--font-sans); font-weight: var(--w-semi);
+  font-size: var(--t-h3); line-height: var(--lh-snug); }
+
+.dm-quote { font-family: var(--font-serif); font-weight: var(--w-regular);
+  font-size: var(--t-quote); line-height: 1.22; letter-spacing: -0.01em; }
+
+.dm-serif { font-family: var(--font-serif); }
+
+.dm-lead { font-family: var(--font-sans); font-weight: var(--w-regular);
+  font-size: var(--t-lead); line-height: 1.5; color: var(--fg2); }
+
+.dm-body { font-family: var(--font-sans); font-weight: var(--w-regular);
+  font-size: var(--t-body); line-height: var(--lh-body); color: var(--fg1); }
+
+.dm-label { font-family: var(--font-sans); font-weight: var(--w-bold);
+  font-size: var(--t-label); line-height: 1; letter-spacing: var(--ls-label);
+  text-transform: uppercase; }
+
+.dm-mono { font-family: var(--font-mono); }
