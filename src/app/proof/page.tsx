@@ -1,41 +1,49 @@
 import { Metadata } from "next";
-import { ShoppingCart, UserPlus, CalendarCheck, HeartPulse } from "lucide-react";
 import { PageHeader } from "@/components/sections/PageHeader";
-import { ProofSection } from "@/components/sections/ProofSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { ProofCard } from "@/components/cards/ProofCard";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { Button } from "@/components/ui/Button";
+import { globalCtas } from "@/content/ctas";
 
 export const metadata: Metadata = {
   title: "Selected Proof",
-  description: "Real outcomes from real marketing systems. Selected results across industries.",
+  description:
+    "Proof that system fixes produce measurable outcomes across conversion, follow-up, visibility, and reporting.",
 };
 
-const proofCards = [
+const proofItems = [
   {
-    stat: "+40%",
-    label: "order conversion",
-    descriptor: "Ecommerce. Conversion architecture + CRO.",
-    icon: <ShoppingCart size={22} strokeWidth={1.8} />,
+    problem: "Website traffic with low inquiry conversion",
+    work: "Rebuilt page hierarchy, proof blocks, and CTA structure",
+    result: "+40% order conversion",
+    relatedService: "Build",
+    ctaLabel: "Get a Website Conversion Review",
+    ctaHref: "/tools",
   },
   {
-    stat: "+212%",
-    label: "qualified leads",
-    descriptor: "Professional services. Positioning + demand.",
-    icon: <UserPlus size={22} strokeWidth={1.8} />,
+    problem: "Lead follow-up depended on inbox memory",
+    work: "Mapped lifecycle and implemented CRM routing with automated reminders",
+    result: "+212% qualified leads",
+    relatedService: "Scale",
+    ctaLabel: "Map My Follow-Up System",
+    ctaHref: "/tools",
   },
   {
-    stat: "+90%",
-    label: "online bookings",
-    descriptor: "Local services. Website + automation.",
-    icon: <CalendarCheck size={22} strokeWidth={1.8} />,
+    problem: "Weak local visibility and inconsistent booking flow",
+    work: "Connected local trust signals, page intent, and booking follow-up",
+    result: "+90% online bookings",
+    relatedService: "Grow",
+    ctaLabel: "Check My Local Visibility",
+    ctaHref: "/tools",
   },
   {
-    stat: "+45%",
-    label: "patient growth",
-    descriptor: "Healthcare. Local SEO + conversion.",
-    icon: <HeartPulse size={22} strokeWidth={1.8} />,
+    problem: "Disconnected reporting across campaigns and operations",
+    work: "Aligned attribution, dashboards, and weekly operating rhythm",
+    result: "+45% patient growth",
+    relatedService: "Foundation + Grow",
+    ctaLabel: "Build My Growth Roadmap",
+    ctaHref: "/contact",
   },
 ];
 
@@ -43,37 +51,60 @@ export default function ProofPage() {
   return (
     <>
       <PageHeader
-        eyebrow="SELECTED PROOF"
-        headline="REAL SYSTEMS. REAL OUTCOMES."
-        lead="Selected results from businesses that connected strategy, website, CRM, and demand into one system."
+        eyebrow="PROOF"
+        headline="Proof that the system matters."
+        lead="Every result started with a real bottleneck: unclear conversion path, manual follow-up, weak visibility, or disconnected reporting."
         breadcrumb="Darling Martech / Proof"
       />
-
-      <ProofSection />
 
       <section className="section-padding" style={{ background: "var(--navy)" }}>
         <Container>
           <Eyebrow color="var(--clay)" className="mb-8">
-            RESULT CARDS
+            RESULTS CONNECTED TO FIXES
           </Eyebrow>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {proofCards.map((card) => (
-              <ProofCard key={card.label} {...card} />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {proofItems.map((item) => (
+              <article
+                key={item.result}
+                className="rounded-[var(--radius-lg)] border p-6"
+                style={{
+                  background: "var(--surface-dark)",
+                  borderColor: "var(--line-on-dark)",
+                }}
+              >
+                <p className="text-sm" style={{ color: "var(--fg-on-dark-2)" }}>
+                  <strong>Problem:</strong> {item.problem}
+                </p>
+                <p className="mt-2 text-sm" style={{ color: "var(--fg-on-dark-2)" }}>
+                  <strong>Work performed:</strong> {item.work}
+                </p>
+                <p className="mt-3 text-lg font-bold" style={{ color: "var(--fg-on-dark-1)" }}>
+                  {item.result}
+                </p>
+                <p
+                  className="mt-2 text-xs font-bold tracking-[0.12em] uppercase"
+                  style={{ color: "var(--clay)", fontFamily: "var(--font-mono)" }}
+                >
+                  Related service: {item.relatedService}
+                </p>
+                <div className="mt-4">
+                  <Button variant="secondary-light" size="sm" href={item.ctaHref}>
+                    {item.ctaLabel}
+                  </Button>
+                </div>
+              </article>
             ))}
           </div>
-          <p
-            className="mt-8 text-xs"
-            style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}
-          >
-            Results are representative of documented client outcomes. Individual results vary by
-            business, starting point, and engagement scope.
-          </p>
         </Container>
       </section>
 
       <CTASection
-        headline="READY TO BUILD YOUR PROOF?"
-        lead="Book a diagnostic call and we start by mapping the system — what's working, what's not, and what to fix first."
+        headline="Want to see what this looks like in your system?"
+        lead="Start with the bottleneck, not a guess."
+        primaryLabel={globalCtas.bookDiagnosticCall.label}
+        primaryHref={globalCtas.bookDiagnosticCall.href}
+        secondaryLabel={globalCtas.findGrowthLeak.label}
+        secondaryHref={globalCtas.findGrowthLeak.href}
       />
     </>
   );

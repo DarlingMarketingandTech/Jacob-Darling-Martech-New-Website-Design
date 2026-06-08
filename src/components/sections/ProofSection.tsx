@@ -2,6 +2,7 @@ import { ShoppingCart, UserPlus, CalendarCheck, HeartPulse } from "lucide-react"
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
+import { globalCtas } from "@/content/ctas";
 
 const wins = [
   {
@@ -34,21 +35,20 @@ export function ProofSection() {
   return (
     <section className="section-padding" style={{ background: "var(--navy)" }}>
       <Container>
-        {/* Header */}
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-[620px]">
+          <div className="max-w-[760px]">
             <Eyebrow color="var(--clay)">SELECTED PROOF</Eyebrow>
             <h2 className="dm-h2 mt-4" style={{ color: "var(--fg-on-dark-1)" }}>
-              Real systems.{" "}
-              <span style={{ color: "var(--crimson)" }}>Real outcomes.</span>
+              Proof that connected systems work harder.
             </h2>
+            <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--fg-on-dark-2)" }}>
+              Every project starts with a bottleneck. The work is not more activity for its own
+              sake. It is a clearer path from interest to action, follow-up, measurement, and
+              growth.
+            </p>
           </div>
-          <Button variant="ghost" href="/proof" arrow style={{ color: "var(--clay)" }}>
-            See all proof
-          </Button>
         </div>
 
-        {/* Stats grid */}
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {wins.map((w) => (
             <div
@@ -60,22 +60,14 @@ export function ProofSection() {
                 boxShadow: "var(--shadow-dark)",
               }}
             >
-              <w.Icon
-                size={24}
-                strokeWidth={1.8}
-                style={{ color: "var(--clay)" }}
-                aria-hidden="true"
-              />
+              <w.Icon size={24} strokeWidth={1.8} style={{ color: "var(--clay)" }} aria-hidden="true" />
               <div
                 className="mt-4 text-5xl font-black leading-none tracking-[-0.03em]"
                 style={{ color: "var(--fg-on-dark-1)" }}
               >
                 {w.stat}
               </div>
-              <div
-                className="mt-1 text-[15px] font-semibold"
-                style={{ color: "var(--fg-on-dark-1)" }}
-              >
+              <div className="mt-1 text-[15px] font-semibold" style={{ color: "var(--fg-on-dark-1)" }}>
                 {w.label}
               </div>
               <div
@@ -92,24 +84,24 @@ export function ProofSection() {
           ))}
         </div>
 
-        {/* Editorial quote */}
-        <div
-          className="mt-14 flex gap-6 border-t pt-10"
-          style={{ borderColor: "var(--line-on-dark)" }}
-        >
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Button variant="primary" href={globalCtas.seeProofInAction.href}>
+            {globalCtas.seeProofInAction.label}
+          </Button>
+          <Button variant="secondary-light" href={globalCtas.findGrowthLeak.href}>
+            {globalCtas.findGrowthLeak.label}
+          </Button>
+        </div>
+
+        <div className="mt-14 flex gap-6 border-t pt-10" style={{ borderColor: "var(--line-on-dark)" }}>
           <div
             className="hidden w-[3px] self-stretch rounded-sm sm:block"
             style={{ background: "var(--crimson)" }}
             aria-hidden="true"
           />
           <div>
-            <blockquote
-              className="dm-quote max-w-[820px]"
-              style={{ color: "var(--fg-on-dark-1)" }}
-            >
-              Good strategy is the advantage.{" "}
-              <em style={{ color: "var(--clay)", fontStyle: "italic" }}>Great systems</em> make it
-              scalable.
+            <blockquote className="dm-quote max-w-[820px]" style={{ color: "var(--fg-on-dark-1)" }}>
+              Clarity. Connection. Compounding.
             </blockquote>
             <div
               className="mt-4 text-xs font-bold tracking-[0.16em] uppercase"

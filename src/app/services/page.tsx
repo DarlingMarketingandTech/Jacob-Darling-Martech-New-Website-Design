@@ -1,77 +1,98 @@
 import { Metadata } from "next";
-import { Compass, LayoutGrid, Workflow, TrendingUp } from "lucide-react";
+import Link from "next/link";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTASection } from "@/components/sections/CTASection";
-import { ServiceCard } from "@/components/cards/ServiceCard";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { Button } from "@/components/ui/Button";
+import { servicePaths } from "@/content/services";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Four-stage marketing system: Foundation, Build, Scale, and Grow — each stage sets up the next.",
+    "Foundation, Build, Scale, and Grow service paths that connect website conversion, CRM, automation, visibility, and reporting.",
 };
-
-const services = [
-  {
-    number: "01",
-    icon: <Compass size={26} strokeWidth={1.8} />,
-    title: "Foundation & Strategy",
-    forLine: "businesses ready to fix the system before spending more",
-    tags: ["Growth Audit", "Positioning", "Roadmap"],
-    href: "/services",
-  },
-  {
-    number: "02",
-    icon: <LayoutGrid size={26} strokeWidth={1.8} />,
-    title: "Website & Conversion",
-    forLine: "businesses whose site exists but doesn't convert",
-    tags: ["UX", "Conversion Copy", "CRO"],
-    href: "/websites-systems",
-  },
-  {
-    number: "03",
-    icon: <Workflow size={26} strokeWidth={1.8} />,
-    title: "CRM, Automation & AI",
-    forLine: "businesses running tools that aren't connected",
-    tags: ["CRM Setup", "Automation", "AI Workflows"],
-    href: "/ai-automation",
-  },
-  {
-    number: "04",
-    icon: <TrendingUp size={26} strokeWidth={1.8} />,
-    title: "Growth & Demand",
-    forLine: "businesses ready to build a consistent demand engine",
-    tags: ["SEO/GEO", "Content", "Attribution"],
-    href: "/growth-strategy",
-  },
-];
 
 export default function ServicesPage() {
   return (
     <>
       <PageHeader
         eyebrow="SERVICES"
-        headline="THE SYSTEM. FOUR STAGES."
-        lead="Not a menu of disconnected services. A sequence — each stage sets up the next."
+        headline="The Operator Layer in four stages."
+        lead="Each stage solves a specific bottleneck, defines what gets built, and gives you a clear next step."
         breadcrumb="Darling Martech / Services"
       />
 
       <section className="section-padding" style={{ background: "var(--cream)" }}>
         <Container>
-          <Eyebrow className="mb-8">WHAT I BUILD</Eyebrow>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s) => (
-              <ServiceCard key={s.number} {...s} />
+          <Eyebrow className="mb-8">FOUNDATION / BUILD / SCALE / GROW</Eyebrow>
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            {servicePaths.map((path) => (
+              <article
+                key={path.id}
+                className="rounded-[var(--radius-lg)] border bg-white p-6"
+                style={{ borderColor: "var(--line)" }}
+              >
+                <p
+                  className="text-xs font-bold tracking-[0.14em] uppercase"
+                  style={{ color: "var(--crimson)", fontFamily: "var(--font-mono)" }}
+                >
+                  {path.stage}
+                </p>
+                <h2 className="dm-h3 mt-2" style={{ color: "var(--charcoal)" }}>
+                  {path.title}
+                </h2>
+
+                <p className="mt-3 text-sm" style={{ color: "var(--fg2)" }}>
+                  <strong>Problem it solves:</strong> {path.problem}
+                </p>
+                <p className="mt-2 text-sm" style={{ color: "var(--fg2)" }}>
+                  <strong>Outcome:</strong> {path.outcome}
+                </p>
+                <p className="mt-2 text-sm" style={{ color: "var(--fg2)" }}>
+                  <strong>Best fit:</strong> {path.bestFit}
+                </p>
+
+                <div className="mt-4 border-t pt-4" style={{ borderColor: "var(--line)" }}>
+                  <p
+                    className="text-xs font-bold tracking-[0.14em] uppercase"
+                    style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
+                  >
+                    What gets built
+                  </p>
+                  <ul className="mt-2 space-y-2">
+                    {path.includes.map((item) => (
+                      <li key={item} className="text-sm" style={{ color: "var(--charcoal)" }}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <p className="mt-4 text-sm" style={{ color: "var(--fg2)" }}>
+                  <strong>Related proof or tool:</strong>{" "}
+                  <Link href={path.relatedAsset.href} className="text-[var(--crimson)] hover:underline">
+                    {path.relatedAsset.label}
+                  </Link>
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Button variant="primary" size="sm" href={path.primaryCta.href}>
+                    {path.primaryCta.label}
+                  </Button>
+                  {path.secondaryCta && (
+                    <Button variant="secondary" size="sm" href={path.secondaryCta.href}>
+                      {path.secondaryCta.label}
+                    </Button>
+                  )}
+                </div>
+              </article>
             ))}
           </div>
         </Container>
       </section>
 
-      <CTASection
-        headline="START WITH A DIAGNOSTIC."
-        lead="Before any build or retainer, I run a diagnostic to find where the system is leaking. Then we fix in order."
-      />
+      <CTASection />
     </>
   );
 }

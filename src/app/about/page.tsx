@@ -3,11 +3,12 @@ import { PageHeader } from "@/components/sections/PageHeader";
 import { AboutFounder } from "@/components/sections/AboutFounder";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { CTASection } from "@/components/sections/CTASection";
+import { globalCtas } from "@/content/ctas";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Jacob Darling — marketing systems operator. Direct access, strategic execution, measurable results.",
+    "Founder-led marketing systems partner model with direct accountability from diagnosis through implementation.",
 };
 
 export default function AboutPage() {
@@ -15,8 +16,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="ABOUT"
-        headline="ONE OPERATOR. FULL ACCOUNTABILITY."
-        lead="You work with me — directly. No account managers. No handoffs. One person who owns the strategy and the execution."
+        headline="Built by the person doing the work."
+        lead="I do not run a handoff-heavy agency model. I work directly with clients to diagnose, build, connect, and improve the system."
         breadcrumb="Darling Martech / About"
       />
 
@@ -24,8 +25,12 @@ export default function AboutPage() {
       <TrustStrip />
 
       <CTASection
-        headline="READY TO WORK DIRECTLY?"
-        lead="Book a diagnostic call. I'll show you exactly how I'd approach your system — before you commit to anything."
+        headline="Want direct accountability on the work?"
+        lead="Book the diagnostic call if you want one operator to connect strategy and execution."
+        primaryLabel={globalCtas.bookDiagnosticCall.label}
+        primaryHref={globalCtas.bookDiagnosticCall.href}
+        secondaryLabel={globalCtas.seeProofInAction.label}
+        secondaryHref={globalCtas.seeProofInAction.href}
       />
     </>
   );

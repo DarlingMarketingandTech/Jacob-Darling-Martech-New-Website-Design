@@ -1,56 +1,40 @@
 import { Metadata } from "next";
-import { LayoutGrid, Workflow } from "lucide-react";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTASection } from "@/components/sections/CTASection";
-import { ServiceCard } from "@/components/cards/ServiceCard";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { segmentCtas } from "@/content/ctas";
 
 export const metadata: Metadata = {
   title: "Websites & Systems",
   description:
-    "Website architecture, UX, conversion copy, and CRM integration — built to convert.",
+    "Website conversion strategy for businesses whose site looks fine but does not generate enough qualified inquiries.",
 };
 
-const features = [
+const painPoints = [
   {
-    title: "Conversion Architecture",
-    description:
-      "Page structure, proof placement, and next-step logic designed to move intent into action.",
+    title: "Unclear offer",
+    description: "Visitors should understand what you do, who it is for, and why to trust it in seconds.",
   },
   {
-    title: "UX & Messaging",
-    description:
-      "Clear offer hierarchy, sharp headlines, and a visual system that builds trust before the pitch.",
+    title: "Weak proof placement",
+    description: "Proof should appear where decisions happen, not buried below generic claims.",
   },
   {
-    title: "CMS & Tech Integration",
-    description:
-      "CRM connection, form routing, analytics, and tag manager — all wired in from day one.",
+    title: "Buried CTAs",
+    description: "Every priority page needs one obvious next step aligned to buyer intent.",
   },
   {
-    title: "Performance & SEO Baseline",
-    description:
-      "Core Web Vitals, technical SEO foundation, and structured data — built in, not retrofitted.",
-  },
-];
-
-const services = [
-  {
-    number: "02",
-    icon: <LayoutGrid size={26} strokeWidth={1.8} />,
-    title: "Website & Conversion",
-    forLine: "businesses whose site exists but doesn't convert",
-    tags: ["UX", "Conversion Copy", "CRO"],
-    href: "/websites-systems",
+    title: "Confusing page hierarchy",
+    description: "Page structure should guide scanning and move the right buyer to action.",
   },
   {
-    number: "03",
-    icon: <Workflow size={26} strokeWidth={1.8} />,
-    title: "CRM & System Integration",
-    forLine: "businesses who need the back-end connected to the front-end",
-    tags: ["CRM", "Forms", "Analytics"],
-    href: "/ai-automation",
+    title: "Poor lead capture",
+    description: "Forms, contact paths, and qualification prompts should reduce friction.",
+  },
+  {
+    title: "No CRM/follow-up connection",
+    description: "Your website should hand leads into CRM and follow-up workflows automatically.",
   },
 ];
 
@@ -59,42 +43,40 @@ export default function WebsitesSystemsPage() {
     <>
       <PageHeader
         eyebrow="WEBSITES & SYSTEMS"
-        headline="BUILT TO CONVERT. WIRED TO SCALE."
-        lead="A website that looks right isn't enough. It needs to convert visitors, connect to your CRM, and feed your reporting."
+        headline="A website should guide the right visitor to the right next step."
+        lead="If the site looks fine but conversion is weak, the issue is usually clarity, proof, CTA structure, and follow-up connection."
         breadcrumb="Darling Martech / Websites & Systems"
       />
 
       <section className="section-padding" style={{ background: "var(--cream)" }}>
         <Container>
-          <Eyebrow className="mb-8">WHAT THIS COVERS</Eyebrow>
+          <Eyebrow className="mb-8">CONVERSION BOTTLENECKS</Eyebrow>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {features.map((f) => (
+            {painPoints.map((point) => (
               <div
-                key={f.title}
+                key={point.title}
                 className="rounded-[var(--radius-lg)] border bg-white p-6"
                 style={{ borderColor: "var(--line)" }}
               >
                 <h3 className="dm-h3 mb-2" style={{ color: "var(--charcoal)" }}>
-                  {f.title}
+                  {point.title}
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--fg2)" }}>
-                  {f.description}
+                  {point.description}
                 </p>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
-            {services.map((s) => (
-              <ServiceCard key={s.number} {...s} />
             ))}
           </div>
         </Container>
       </section>
 
       <CTASection
-        headline="YOUR SITE SHOULD BE DOING MORE."
-        lead="Book a diagnostic call and I'll show you exactly where the conversion gaps are — before we build anything."
+        headline="Ready to fix website conversion leaks?"
+        lead="Not more traffic. Better conversion. Start with a review and leave with priority fixes."
+        primaryLabel={segmentCtas.website.primary.label}
+        primaryHref={segmentCtas.website.primary.href}
+        secondaryLabel={segmentCtas.website.secondary.label}
+        secondaryHref={segmentCtas.website.secondary.href}
       />
     </>
   );

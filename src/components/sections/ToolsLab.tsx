@@ -4,66 +4,33 @@ import { useState } from "react";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
-
-const tools = [
-  {
-    id: "audit",
-    label: "Growth System Audit",
-    description:
-      "Identify the highest-leverage gaps in your marketing system — website, CRM, automation, and demand — before you spend on anything new.",
-    outputs: ["System gap scorecard", "Priority fix list", "Recommended next move"],
-  },
-  {
-    id: "geo",
-    label: "GEO Readiness Auditor",
-    description:
-      "Assess how well your content and site structure are positioned for AI-driven search discovery (Generative Engine Optimization).",
-    outputs: ["GEO readiness score", "Content gap map", "Entity & structure checklist"],
-  },
-  {
-    id: "attribution",
-    label: "Attribution Snapshot",
-    description:
-      "Get a clear picture of which channels and touchpoints are generating pipeline — even without a complex analytics stack.",
-    outputs: ["Channel attribution map", "Data quality check", "Reporting recommendations"],
-  },
-  {
-    id: "roi",
-    label: "ROI Projection Calculator",
-    description:
-      "Model the expected return before committing budget — based on your current conversion rates and average deal value.",
-    outputs: ["Revenue projection", "Break-even timeline", "Sensitivity ranges"],
-  },
-  {
-    id: "roadmap",
-    label: "Technical Roadmap",
-    description:
-      "A sequenced plan for your marketing tech stack — what to fix, what to connect, and what to defer.",
-    outputs: ["Stack audit", "Integration priorities", "Phased roadmap"],
-  },
-];
+import { diagnostics } from "@/content/diagnostics";
 
 export function ToolsLab() {
   const [selected, setSelected] = useState(0);
-  const active = tools[selected];
+  const active = diagnostics[selected];
+
+  if (!active) {
+    return null;
+  }
 
   return (
     <section className="section-padding" style={{ background: "var(--surface-sunken)" }}>
       <Container>
-        <div className="mb-10 max-w-[640px]">
-          <Eyebrow>DIAGNOSTIC TOOLS</Eyebrow>
+        <div className="mb-10 max-w-[760px]">
+          <Eyebrow>DIAGNOSTIC STARTING POINTS</Eyebrow>
           <h2 className="dm-h2 mt-4" style={{ color: "var(--charcoal)" }}>
-            Find the gaps before you spend.
+            Choose the problem you want to diagnose first.
           </h2>
           <p className="dm-lead mt-3" style={{ color: "var(--fg2)" }}>
-            Run a diagnostic before committing to any campaign, project, or retainer.
+            Start with the diagnostic that matches what feels broken: website conversion,
+            follow-up, visibility, automation, or the whole growth system.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[340px_1fr]">
-          {/* Tool selector */}
           <div className="flex flex-col gap-1">
-            {tools.map((tool, i) => {
+            {diagnostics.map((tool, i) => {
               const isActive = selected === i;
               return (
                 <button
@@ -91,22 +58,17 @@ export function ToolsLab() {
             })}
           </div>
 
-          {/* Dashboard preview panel */}
           <div
             className="rounded-[var(--radius-lg)] border bg-white p-8"
             style={{ borderColor: "var(--line)", boxShadow: "var(--shadow-md)" }}
           >
             <div className="mb-1 flex items-center gap-2">
-              <div
-                className="h-2 w-2 rounded-full"
-                style={{ background: "var(--cool-sage)" }}
-                aria-hidden="true"
-              />
+              <div className="h-2 w-2 rounded-full" style={{ background: "var(--cool-sage)" }} aria-hidden="true" />
               <span
                 className="text-xs font-bold tracking-[0.14em] uppercase"
                 style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
               >
-                TOOL PREVIEW
+                DIAGNOSTIC PREVIEW
               </span>
             </div>
             <h3 className="dm-h3 mt-3" style={{ color: "var(--charcoal)" }}>
@@ -121,20 +83,24 @@ export function ToolsLab() {
                 className="mb-3 text-xs font-bold tracking-[0.14em] uppercase"
                 style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
               >
-                OUTPUTS
+                WHO IT IS FOR
+              </div>
+              <p className="text-sm" style={{ color: "var(--charcoal)" }}>
+                {active.audience}
+              </p>
+            </div>
+
+            <div className="mt-6 border-t pt-5" style={{ borderColor: "var(--line)" }}>
+              <div
+                className="mb-3 text-xs font-bold tracking-[0.14em] uppercase"
+                style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
+              >
+                WHAT YOU RECEIVE
               </div>
               <ul className="space-y-2">
                 {active.outputs.map((o) => (
-                  <li
-                    key={o}
-                    className="flex items-center gap-2 text-sm font-medium"
-                    style={{ color: "var(--charcoal)" }}
-                  >
-                    <span
-                      className="shrink-0 h-1.5 w-1.5 rounded-full"
-                      style={{ background: "var(--crimson)" }}
-                      aria-hidden="true"
-                    />
+                  <li key={o} className="flex items-center gap-2 text-sm font-medium" style={{ color: "var(--charcoal)" }}>
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "var(--crimson)" }} aria-hidden="true" />
                     {o}
                   </li>
                 ))}
@@ -142,8 +108,8 @@ export function ToolsLab() {
             </div>
 
             <div className="mt-6">
-              <Button variant="primary" size="sm" href="/tools">
-                Run This Tool
+              <Button variant="primary" size="sm" href={active.href}>
+                {active.ctaLabel}
               </Button>
             </div>
           </div>

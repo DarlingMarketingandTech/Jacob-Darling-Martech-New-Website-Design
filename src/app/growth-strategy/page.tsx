@@ -1,40 +1,36 @@
 import { Metadata } from "next";
 import { PageHeader } from "@/components/sections/PageHeader";
-import { ProofSection } from "@/components/sections/ProofSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { segmentCtas } from "@/content/ctas";
 
 export const metadata: Metadata = {
   title: "Growth Strategy",
   description:
-    "Demand generation, SEO/GEO, content, and attribution — connected to your system.",
+    "Growth strategy for founders and teams who need positioning, priorities, and execution tied to measurable systems.",
 };
 
-const steps = [
+const priorities = [
   {
     n: "01",
-    title: "Audit & Position",
-    description:
-      "Understand where demand is currently coming from, what's underperforming, and where the highest-leverage opportunities are.",
+    title: "Positioning and offer clarity",
+    description: "Align message, offer, and buyer intent so demand quality improves before spend scales.",
   },
   {
     n: "02",
-    title: "Build the Foundation",
-    description:
-      "Search visibility, content architecture, GEO readiness, and authority signals — built in the right order.",
+    title: "Priority decisions",
+    description: "Choose the highest-leverage channel and system fixes instead of scattering effort.",
   },
   {
     n: "03",
-    title: "Connect the Demand Loop",
-    description:
-      "Tie demand generation into CRM, automation, and reporting so every channel is measured and every lead is followed up.",
+    title: "Campaign direction",
+    description: "Run campaigns that match the actual bottleneck in conversion, follow-up, or visibility.",
   },
   {
     n: "04",
-    title: "Compound & Report",
-    description:
-      "Monthly reporting on what's working, what to double down on, and what to cut — so every decision is data-informed.",
+    title: "Measurement and operating rhythm",
+    description: "Track what matters, review consistently, and keep execution tied to roadmap outcomes.",
   },
 ];
 
@@ -43,18 +39,18 @@ export default function GrowthStrategyPage() {
     <>
       <PageHeader
         eyebrow="GROWTH STRATEGY"
-        headline="DEMAND THAT COMPOUNDS."
-        lead="Search, content, GEO, and attribution — built into the system, not bolted on."
+        headline="A growth strategy only matters if the system can execute it."
+        lead="I help founders and small teams connect positioning, priorities, and execution so growth decisions are clear and measurable."
         breadcrumb="Darling Martech / Growth Strategy"
       />
 
       <section className="section-padding" style={{ background: "var(--cream)" }}>
         <Container>
-          <Eyebrow className="mb-10">THE APPROACH</Eyebrow>
+          <Eyebrow className="mb-10">STRATEGY PRIORITIES</Eyebrow>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            {steps.map((step) => (
+            {priorities.map((item) => (
               <div
-                key={step.n}
+                key={item.n}
                 className="rounded-[var(--radius-lg)] border bg-white p-6"
                 style={{ borderColor: "var(--line)" }}
               >
@@ -62,13 +58,13 @@ export default function GrowthStrategyPage() {
                   className="mb-3 text-xs font-bold tracking-[0.14em]"
                   style={{ color: "var(--crimson)", fontFamily: "var(--font-mono)" }}
                 >
-                  {step.n}
+                  {item.n}
                 </div>
                 <h3 className="dm-h3 mb-2" style={{ color: "var(--charcoal)" }}>
-                  {step.title}
+                  {item.title}
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--fg2)" }}>
-                  {step.description}
+                  {item.description}
                 </p>
               </div>
             ))}
@@ -76,11 +72,13 @@ export default function GrowthStrategyPage() {
         </Container>
       </section>
 
-      <ProofSection />
-
       <CTASection
-        headline="GROWTH STARTS WITH A DIAGNOSTIC."
-        lead="Before any campaign or retainer, I audit the system to find where demand is leaking — then we fix in order."
+        headline="Need strategic direction and execution in one plan?"
+        lead="Not a bigger stack. A clearer path. Start with the roadmap or a diagnostic leak check."
+        primaryLabel={segmentCtas.strategy.primary.label}
+        primaryHref={segmentCtas.strategy.primary.href}
+        secondaryLabel={segmentCtas.strategy.secondary.label}
+        secondaryHref={segmentCtas.strategy.secondary.href}
       />
     </>
   );

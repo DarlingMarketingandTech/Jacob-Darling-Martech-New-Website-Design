@@ -71,7 +71,7 @@ export function Nav() {
               className="hidden rounded-[var(--radius-md)] px-5 py-[11px] text-sm font-bold text-white transition-colors duration-[140ms] hover:bg-[var(--burgundy)] lg:block"
               style={{ background: "var(--crimson)", fontFamily: "var(--font-sans)" }}
             >
-              Book a Call
+              Book Diagnostic
             </Link>
             <button
               className="flex items-center justify-center rounded-[var(--radius-sm)] p-1.5 text-[var(--cream)] lg:hidden"
@@ -118,7 +118,7 @@ export function Nav() {
                   style={{ background: "var(--crimson)" }}
                   onClick={() => setOpen(false)}
                 >
-                  Book a Call
+                  Book Diagnostic
                 </Link>
               </div>
             </nav>

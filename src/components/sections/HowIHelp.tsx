@@ -10,29 +10,31 @@ const stages = [
     n: "01",
     key: "Foundation",
     icon: Compass,
-    description: "Strategy, positioning, audit, and a prioritised roadmap — before anything is built.",
-    items: ["Growth system audit", "Positioning & messaging", "Prioritised roadmap"],
+    description:
+      "Clarify the bottleneck, position the offer, and map the highest-leverage path forward.",
+    items: ["Growth system diagnosis", "Positioning and message clarity", "Prioritized roadmap"],
   },
   {
     n: "02",
     key: "Build",
     icon: LayoutGrid,
-    description: "Website architecture, UX, conversion copy, and clear next-step logic.",
-    items: ["Site architecture & UX", "Conversion copy & proof", "Next-step logic"],
+    description: "Turn the website into a clearer path from attention to action.",
+    items: ["Page architecture", "Conversion copy", "Proof and CTA structure"],
   },
   {
     n: "03",
     key: "Scale",
     icon: Workflow,
-    description: "CRM setup, lifecycle automation, AI-assisted workflows, and clean handoffs.",
-    items: ["CRM & lifecycle setup", "Automated follow-up", "AI-assisted workflows"],
+    description: "Connect lead capture, follow-up, CRM, automation, and AI-assisted workflows.",
+    items: ["CRM and lifecycle setup", "Automated follow-up", "AI-assisted operations"],
   },
   {
     n: "04",
     key: "Grow",
     icon: TrendingUp,
-    description: "Search visibility, content demand, and attribution so every channel reports back.",
-    items: ["Search & GEO visibility", "Content & demand", "Attribution & reporting"],
+    description:
+      "Improve visibility, content, reporting, and measurement so the system keeps learning.",
+    items: ["Local and AI search signals", "Content and demand support", "Attribution and reporting"],
   },
 ];
 
@@ -40,25 +42,20 @@ export function HowIHelp() {
   const [active, setActive] = useState(0);
 
   return (
-    <section
-      className="section-padding dot-texture"
-      style={{ background: "var(--charcoal)" }}
-    >
+    <section className="section-padding dot-texture" style={{ background: "var(--charcoal)" }}>
       <Container>
-        {/* Header */}
-        <div className="max-w-[720px]">
-          <Eyebrow color="var(--clay)">THE SYSTEM</Eyebrow>
+        <div className="max-w-[820px]">
+          <Eyebrow color="var(--clay)">THE OPERATOR LAYER</Eyebrow>
           <h2 className="dm-h2 mt-4" style={{ color: "var(--fg-on-dark-1)" }}>
-            One connected system, built in four moves.
+            The Operator Layer connects the parts that usually drift apart.
           </h2>
           <p className="dm-lead mt-3" style={{ color: "var(--fg-on-dark-2)" }}>
-            Not a menu of disconnected services. A sequence — each stage sets up the next.
+            Most growth problems are not fixed by another campaign. They are fixed by connecting
+            the layer underneath it: offer, website, CRM, automation, visibility, and reporting.
           </p>
         </div>
 
-        {/* Stage rail */}
         <div className="relative mt-14">
-          {/* Connecting line */}
           <div
             className="pointer-events-none absolute left-[7%] right-[7%] top-7 hidden h-[2px] lg:block"
             style={{
@@ -114,7 +111,6 @@ export function HowIHelp() {
           </div>
         </div>
 
-        {/* Detail panel */}
         <div
           className="mt-10 grid grid-cols-1 gap-8 rounded-[var(--radius-lg)] border-l-[3px] border p-8 lg:grid-cols-[1fr_1.4fr]"
           style={{
@@ -130,16 +126,10 @@ export function HowIHelp() {
             >
               {stages[active].n} — Stage
             </div>
-            <h3
-              className="mt-2 text-3xl font-bold tracking-[-0.01em]"
-              style={{ color: "var(--fg-on-dark-1)" }}
-            >
+            <h3 className="mt-2 text-3xl font-bold tracking-[-0.01em]" style={{ color: "var(--fg-on-dark-1)" }}>
               {stages[active].key}
             </h3>
-            <p
-              className="mt-3 text-base leading-relaxed"
-              style={{ color: "var(--fg-on-dark-2)" }}
-            >
+            <p className="mt-3 text-base leading-relaxed" style={{ color: "var(--fg-on-dark-2)" }}>
               {stages[active].description}
             </p>
           </div>

@@ -1,11 +1,11 @@
 import { Container } from "@/components/layout/Container";
 
-const disciplines = [
-  "Website Conversion",
-  "CRM & Automation",
-  "AI Workflows",
-  "Reporting",
-  "SEO/GEO",
+const trustPoints = [
+  "One operator, direct accountability",
+  "Strategy and build work in one place",
+  "Website, CRM, automation, and reporting connected",
+  "Local and remote support",
+  "Built for growing businesses, not bloated teams",
 ];
 
 export function TrustStrip() {
@@ -16,13 +16,10 @@ export function TrustStrip() {
     >
       <Container>
         <div className="flex flex-wrap items-center justify-center gap-x-0 gap-y-2 py-5">
-          {disciplines.map((item, i) => (
+          {trustPoints.map((item, i) => (
             <span key={item} className="flex items-center">
               {i > 0 && (
-                <span
-                  className="mx-3 text-[var(--crimson)]"
-                  aria-hidden="true"
-                >
+                <span className="mx-3 text-[var(--crimson)]" aria-hidden="true">
                   &bull;
                 </span>
               )}

@@ -12,20 +12,19 @@ interface CTASectionProps {
 }
 
 export function CTASection({
-  headline = "READY TO BUILD A SYSTEM THAT COMPOUNDS?",
-  lead = "Book a diagnostic call. We identify the gaps, prioritise the fixes, and build the system together — no handoffs, no surprises.",
-  primaryLabel = "Book a Diagnostic Call",
-  primaryHref = "/contact",
-  secondaryLabel = "Run the Growth System Audit",
-  secondaryHref = "/tools",
-  finePrint = "No commitment required. 30-minute diagnostic. Direct access.",
+  headline = "Ready to find the real bottleneck?",
+  lead = "Start with a diagnostic if the problem is still fuzzy. Book a call if you already know the system needs to be rebuilt.",
+  primaryLabel = "Find the Growth Leak",
+  primaryHref = "/tools",
+  secondaryLabel = "Book a Diagnostic Call",
+  secondaryHref = "/contact",
+  finePrint = "No pressure. No handoffs. Just a clear next step.",
 }: CTASectionProps) {
   return (
     <section
       className="section-padding dot-texture crimson-glow relative overflow-hidden"
       style={{ background: "var(--navy)" }}
     >
-      {/* Centered glow */}
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
         aria-hidden="true"
@@ -39,17 +38,11 @@ export function CTASection({
       </div>
 
       <Container className="relative z-10 text-center">
-        <h2
-          className="dm-display mx-auto max-w-[760px]"
-          style={{ color: "var(--fg-on-dark-1)" }}
-        >
+        <h2 className="dm-display mx-auto max-w-[760px]" style={{ color: "var(--fg-on-dark-1)" }}>
           {headline}
         </h2>
 
-        <p
-          className="dm-lead mx-auto mt-5 max-w-[520px]"
-          style={{ color: "var(--fg-on-dark-2)" }}
-        >
+        <p className="dm-lead mx-auto mt-5 max-w-[520px]" style={{ color: "var(--fg-on-dark-2)" }}>
           {lead}
         </p>
 
@@ -63,10 +56,7 @@ export function CTASection({
         </div>
 
         {finePrint && (
-          <p
-            className="mt-6 text-xs"
-            style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}
-          >
+          <p className="mt-6 text-xs" style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}>
             {finePrint}
           </p>
         )}
