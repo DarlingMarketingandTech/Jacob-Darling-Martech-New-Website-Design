@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Container } from "./Container";
 
 const navLinks = [
@@ -16,6 +17,7 @@ const navLinks = [
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
@@ -40,10 +42,7 @@ export function Nav() {
             className="flex shrink-0 items-center gap-2 text-decoration-none"
             aria-label="Darling Martech home"
           >
-            <span
-              className="text-sm font-black tracking-[0.14em] uppercase"
-              style={{ color: "var(--cream)", fontFamily: "var(--font-sans)" }}
-            >
+            <span className="text-sm font-black tracking-[0.14em] uppercase text-cream">
               DARLING MARTECH
             </span>
           </Link>
@@ -54,8 +53,8 @@ export function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium transition-colors duration-150 hover:text-[var(--cream)]"
-                style={{ color: "var(--fg-on-dark-2)", fontFamily: "var(--font-sans)" }}
+                className="text-sm font-medium transition-colors duration-150 hover:text-cream"
+                style={{ color: "var(--fg-on-dark-2)" }}
               >
                 {link.label}
               </Link>
@@ -66,16 +65,16 @@ export function Nav() {
           <div className="ml-auto flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden rounded-[var(--radius-md)] px-5 py-[11px] text-sm font-bold text-white transition-colors duration-[140ms] hover:bg-[var(--burgundy)] lg:block"
-              style={{ background: "var(--crimson)", fontFamily: "var(--font-sans)" }}
+              className="hidden rounded-[var(--radius-md)] px-5 py-[11px] text-sm font-bold text-white transition-colors duration-[140ms] hover:bg-burgundy lg:block bg-crimson"
             >
               Book Diagnostic
             </Link>
             <button
-              className="flex items-center justify-center rounded-[var(--radius-sm)] p-1.5 text-[var(--cream)] lg:hidden"
+              className="flex items-center justify-center rounded-[var(--radius-sm)] p-1.5 text-cream lg:hidden"
               onClick={() => setOpen((o) => !o)}
               aria-label={open ? "Close navigation" : "Open navigation"}
               aria-expanded={open}
+              aria-controls="mobile-nav"
             >
               {open ? <X size={24} strokeWidth={2} /> : <Menu size={24} strokeWidth={2} />}
             </button>
@@ -84,45 +83,51 @@ export function Nav() {
       </Container>
 
       {/* Mobile menu */}
-      {open && (
-        <div
-          className="border-t lg:hidden"
-          style={{ borderColor: "var(--line-on-dark)", background: "rgba(11,19,32,0.98)" }}
-        >
-          <Container className="py-4">
-            <nav
-              className="flex flex-col"
-              aria-label="Mobile navigation"
-            >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="border-b py-3 text-base font-semibold transition-colors hover:text-[var(--cream)]"
-                  style={{
-                    color: "var(--fg-on-dark-1)",
-                    borderColor: "var(--line-on-dark)",
-                    fontFamily: "var(--font-sans)",
-                  }}
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="mt-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex rounded-[var(--radius-md)] px-6 py-3 text-sm font-bold text-white"
-                  style={{ background: "var(--crimson)" }}
-                  onClick={() => setOpen(false)}
-                >
-                  Book Diagnostic
-                </Link>
-              </div>
-            </nav>
-          </Container>
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: reducedMotion ? 0 : 0.2, ease: "easeOut" }}
+            className="border-t lg:hidden"
+            style={{ borderColor: "var(--line-on-dark)", background: "rgba(11,19,32,0.98)" }}
+          >
+            <Container className="py-4">
+              <nav
+                id="mobile-nav"
+                className="flex flex-col"
+                aria-label="Mobile navigation"
+              >
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="border-b py-3 text-base font-semibold transition-colors hover:text-cream"
+                    style={{
+                      color: "var(--fg-on-dark-1)",
+                      borderColor: "var(--line-on-dark)",
+                    }}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <div className="mt-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex rounded-[var(--radius-md)] px-6 py-3 text-sm font-bold text-white bg-crimson"
+                    onClick={() => setOpen(false)}
+                  >
+                    Book Diagnostic
+                  </Link>
+                </div>
+              </nav>
+            </Container>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

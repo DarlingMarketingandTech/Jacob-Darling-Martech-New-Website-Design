@@ -11,8 +11,8 @@ const trustPoints = [
 export function TrustStrip() {
   return (
     <section
-      className="border-b border-t"
-      style={{ background: "var(--cream)", borderColor: "var(--line)" }}
+      className="border-b border-t bg-cream"
+      style={{ borderColor: "var(--line)" }}
     >
       <Container>
         <div className="flex flex-wrap items-center justify-center gap-x-0 gap-y-2 py-5">
@@ -24,8 +24,8 @@ export function TrustStrip() {
                 </span>
               )}
               <span
-                className="text-xs font-bold tracking-[0.14em] uppercase"
-                style={{ color: "var(--fg2)", fontFamily: "var(--font-mono)" }}
+                className="text-xs font-bold tracking-[0.14em] uppercase font-mono"
+                style={{ color: "var(--fg2)" }}
               >
                 {item}
               </span>

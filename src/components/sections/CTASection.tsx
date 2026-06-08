@@ -22,8 +22,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section
-      className="section-padding dot-texture crimson-glow relative overflow-hidden"
-      style={{ background: "var(--navy)" }}
+      className="section-padding dot-texture crimson-glow relative overflow-hidden bg-navy"
     >
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
@@ -56,7 +55,7 @@ export function CTASection({
         </div>
 
         {finePrint && (
-          <p className="mt-6 text-xs" style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}>
+          <p className="mt-6 text-xs font-mono" style={{ color: "var(--fg-on-dark-3)" }}>
             {finePrint}
           </p>
         )}

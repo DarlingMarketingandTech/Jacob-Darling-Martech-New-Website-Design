@@ -6,26 +6,26 @@ import { globalCtas } from "@/content/ctas";
 
 const wins = [
   {
-    stat: "+40%",
-    label: "order conversion",
+    label: "Conversion uplift",
+    detail: "Website and offer clarity connected to measurable order growth.",
     who: "Ecommerce",
     Icon: ShoppingCart,
   },
   {
-    stat: "+212%",
-    label: "qualified leads",
+    label: "Lead quality improvement",
+    detail: "Clearer positioning and automated follow-up producing stronger qualified leads.",
     who: "Professional Services",
     Icon: UserPlus,
   },
   {
-    stat: "+90%",
-    label: "online bookings",
+    label: "Booking growth",
+    detail: "Streamlined booking paths and CRM follow-up reducing friction to first appointment.",
     who: "Local Services",
     Icon: CalendarCheck,
   },
   {
-    stat: "+45%",
-    label: "patient growth",
+    label: "Patient acquisition",
+    detail: "Connected visibility, website, and intake systems supporting consistent new-patient growth.",
     who: "Healthcare",
     Icon: HeartPulse,
   },
@@ -33,7 +33,7 @@ const wins = [
 
 export function ProofSection() {
   return (
-    <section className="section-padding" style={{ background: "var(--navy)" }}>
+    <section className="section-padding bg-navy">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-[760px]">
@@ -62,20 +62,19 @@ export function ProofSection() {
             >
               <w.Icon size={24} strokeWidth={1.8} style={{ color: "var(--clay)" }} aria-hidden="true" />
               <div
-                className="mt-4 text-5xl font-black leading-none tracking-[-0.03em]"
+                className="mt-4 text-lg font-bold leading-snug"
                 style={{ color: "var(--fg-on-dark-1)" }}
               >
-                {w.stat}
-              </div>
-              <div className="mt-1 text-[15px] font-semibold" style={{ color: "var(--fg-on-dark-1)" }}>
                 {w.label}
               </div>
+              <div className="mt-2 text-sm leading-relaxed" style={{ color: "var(--fg-on-dark-2)" }}>
+                {w.detail}
+              </div>
               <div
-                className="mt-4 border-t pt-3 text-xs font-bold tracking-[0.12em] uppercase"
+                className="mt-4 border-t pt-3 text-xs font-bold tracking-[0.12em] uppercase font-mono"
                 style={{
                   borderColor: "var(--line-on-dark)",
                   color: "var(--fg-on-dark-3)",
-                  fontFamily: "var(--font-mono)",
                 }}
               >
                 {w.who}
@@ -104,8 +103,8 @@ export function ProofSection() {
               Clarity. Connection. Compounding.
             </blockquote>
             <div
-              className="mt-4 text-xs font-bold tracking-[0.16em] uppercase"
-              style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}
+              className="mt-4 text-xs font-bold tracking-[0.16em] uppercase font-mono"
+              style={{ color: "var(--fg-on-dark-3)" }}
             >
               &#10043; Darling Martech
             </div>

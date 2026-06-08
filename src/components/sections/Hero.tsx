@@ -9,8 +9,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden"
-      style={{ background: "var(--navy)" }}
+      className="relative overflow-hidden bg-navy"
     >
       <div
         className="pointer-events-none absolute inset-0"
@@ -33,7 +32,7 @@ export function Hero() {
           <div>
             <Eyebrow color="var(--clay)">THE OPERATOR LAYER</Eyebrow>
 
-            <h1 className="dm-display mt-5" style={{ color: "var(--cream)" }}>
+            <h1 className="dm-display mt-5 text-cream">
               Your website, CRM, and marketing should work like one system.
             </h1>
 
@@ -62,11 +61,11 @@ export function Hero() {
               ].map((badge, i) => (
                 <span
                   key={badge}
-                  className="flex items-center gap-2 text-xs font-bold tracking-[0.14em] uppercase"
-                  style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}
+                  className="flex items-center gap-2 text-xs font-bold tracking-[0.14em] uppercase font-mono"
+                  style={{ color: "var(--fg-on-dark-3)" }}
                 >
                   {i > 0 && (
-                    <span className="text-[var(--crimson)]" aria-hidden="true">
+                    <span className="text-crimson" aria-hidden="true">
                       &bull;
                     </span>
                   )}
@@ -86,8 +85,8 @@ export function Hero() {
               }}
             >
               <div
-                className="mb-4 text-xs font-bold tracking-[0.16em] uppercase"
-                style={{ color: "var(--clay)", fontFamily: "var(--font-mono)" }}
+                className="mb-4 text-xs font-bold tracking-[0.16em] uppercase font-mono"
+                style={{ color: "var(--clay)" }}
               >
                 THE OPERATOR LAYER
               </div>
@@ -105,13 +104,7 @@ export function Hero() {
                       />
                     )}
                     <div
-                      className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-xs font-black"
-                      style={{
-                        background: "var(--crimson)",
-                        borderColor: "var(--crimson)",
-                        color: "white",
-                        fontFamily: "var(--font-mono)",
-                      }}
+                      className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-xs font-black font-mono bg-crimson border-crimson text-white"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -138,11 +131,10 @@ export function Hero() {
               </div>
 
               <div
-                className="mt-2 border-t pt-4 text-xs"
+                className="mt-2 border-t pt-4 text-xs font-mono"
                 style={{
                   borderColor: "var(--line-on-dark)",
                   color: "var(--fg-on-dark-3)",
-                  fontFamily: "var(--font-mono)",
                 }}
               >
                 Not more tools. A system that connects.
@@ -157,7 +149,7 @@ export function Hero() {
                 boxShadow: "var(--shadow-dark)",
               }}
             >
-              <div className="h-2.5 w-2.5 rounded-full" style={{ background: "var(--cool-sage)" }} />
+              <div className="h-2.5 w-2.5 rounded-full bg-cool-sage" />
               <div>
                 <div className="text-xs font-bold" style={{ color: "var(--fg-on-dark-1)" }}>
                   One accountable operator

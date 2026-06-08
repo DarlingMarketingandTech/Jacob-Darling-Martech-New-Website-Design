@@ -15,7 +15,7 @@ export function ToolsLab() {
   }
 
   return (
-    <section id="growth-leak-finder" className="section-padding" style={{ background: "var(--surface-sunken)" }}>
+    <section id="growth-leak-finder" className="section-padding bg-surface-sunken">
       <Container>
         <div className="mb-10 max-w-[760px]">
           <Eyebrow>DIAGNOSTIC STARTING POINTS</Eyebrow>
@@ -48,7 +48,6 @@ export function ToolsLab() {
                     className="text-sm font-semibold transition-colors"
                     style={{
                       color: isActive ? "var(--crimson)" : "var(--charcoal)",
-                      fontFamily: "var(--font-sans)",
                     }}
                   >
                     {tool.label}
@@ -63,10 +62,10 @@ export function ToolsLab() {
             style={{ borderColor: "var(--line)", boxShadow: "var(--shadow-md)" }}
           >
             <div className="mb-1 flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full" style={{ background: "var(--cool-sage)" }} aria-hidden="true" />
+              <div className="h-2 w-2 rounded-full bg-cool-sage" aria-hidden="true" />
               <span
-                className="text-xs font-bold tracking-[0.14em] uppercase"
-                style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
+                className="text-xs font-bold tracking-[0.14em] uppercase font-mono"
+                style={{ color: "var(--fg3)" }}
               >
                 DIAGNOSTIC PREVIEW
               </span>
@@ -80,8 +79,8 @@ export function ToolsLab() {
 
             <div className="mt-6 border-t pt-5" style={{ borderColor: "var(--line)" }}>
               <div
-                className="mb-3 text-xs font-bold tracking-[0.14em] uppercase"
-                style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
+                className="mb-3 text-xs font-bold tracking-[0.14em] uppercase font-mono"
+                style={{ color: "var(--fg3)" }}
               >
                 WHO IT IS FOR
               </div>
@@ -92,15 +91,15 @@ export function ToolsLab() {
 
             <div className="mt-6 border-t pt-5" style={{ borderColor: "var(--line)" }}>
               <div
-                className="mb-3 text-xs font-bold tracking-[0.14em] uppercase"
-                style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
+                className="mb-3 text-xs font-bold tracking-[0.14em] uppercase font-mono"
+                style={{ color: "var(--fg3)" }}
               >
                 WHAT YOU RECEIVE
               </div>
               <ul className="space-y-2">
                 {active.outputs.map((o) => (
                   <li key={o} className="flex items-center gap-2 text-sm font-medium" style={{ color: "var(--charcoal)" }}>
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "var(--crimson)" }} aria-hidden="true" />
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" aria-hidden="true" />
                     {o}
                   </li>
                 ))}

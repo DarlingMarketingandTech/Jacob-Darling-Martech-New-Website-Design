@@ -21,8 +21,7 @@ export function PageHeader({
 }: PageHeaderProps) {
   return (
     <section
-      className="section-padding dot-texture relative overflow-hidden"
-      style={{ background: "var(--navy)" }}
+      className="section-padding dot-texture relative overflow-hidden bg-navy"
     >
       {/* Crimson glow — top right */}
       <div
@@ -36,8 +35,8 @@ export function PageHeader({
       <Container className="relative z-10">
         {breadcrumb && (
           <p
-            className="mb-4 text-xs tracking-[0.12em] uppercase"
-            style={{ color: "var(--fg-on-dark-3)", fontFamily: "var(--font-mono)" }}
+            className="mb-4 text-xs tracking-[0.12em] uppercase font-mono"
+            style={{ color: "var(--fg-on-dark-3)" }}
           >
             {breadcrumb}
           </p>
