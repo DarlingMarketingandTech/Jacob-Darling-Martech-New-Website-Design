@@ -27,16 +27,6 @@ export default function Image() {
       >
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.1,
-          }}
-        />
-        <div
-          style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -48,23 +38,33 @@ export default function Image() {
         >
           <div
             style={{
-              fontSize: 64,
-              fontWeight: 700,
-              marginBottom: 40,
+              fontSize: 48,
               color: "#990000",
+              marginBottom: 40,
+              fontWeight: 700,
             }}
           >
-            Darling Martech
+            Resources
           </div>
           <div
             style={{
-              fontSize: 48,
+              fontSize: 56,
               color: "#f5f3ee",
               maxWidth: 1000,
               lineHeight: 1.3,
+              fontWeight: 600,
             }}
           >
-            Marketing Systems for Growing Businesses
+            Systems Thinking. Practical Tools.
+          </div>
+          <div
+            style={{
+              fontSize: 28,
+              color: "#c47e61",
+              marginTop: 40,
+            }}
+          >
+            Darling Martech
           </div>
         </div>
       </div>

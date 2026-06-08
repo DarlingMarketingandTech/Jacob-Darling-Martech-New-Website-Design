@@ -26,7 +26,7 @@ export default function ProofPage() {
           <Eyebrow color="var(--clay)" className="mb-8">
             RESULTS CONNECTED TO FIXES
           </Eyebrow>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {proofItems.map((item) => (
               <article
                 key={item.result}
@@ -36,17 +36,47 @@ export default function ProofPage() {
                   borderColor: "var(--line-on-dark)",
                 }}
               >
-                <p className="text-sm" style={{ color: "var(--fg-on-dark-2)" }}>
-                  <strong>Problem:</strong> {item.problem}
-                </p>
-                <p className="mt-2 text-sm" style={{ color: "var(--fg-on-dark-2)" }}>
-                  <strong>Work performed:</strong> {item.work}
-                </p>
-                <p className="mt-3 text-lg font-bold" style={{ color: "var(--fg-on-dark-1)" }}>
-                  {item.result}
-                </p>
+                <div>
+                  <p className="font-bold" style={{ color: "var(--fg-on-dark-1)" }}>
+                    Problem
+                  </p>
+                  <p className="mt-1 text-sm" style={{ color: "var(--fg-on-dark-2)" }}>
+                    {item.problem}
+                  </p>
+                  {item.problemDetail && (
+                    <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--fg-on-dark-3)" }}>
+                      {item.problemDetail}
+                    </p>
+                  )}
+                </div>
+
+                <div className="mt-4">
+                  <p className="font-bold" style={{ color: "var(--fg-on-dark-1)" }}>
+                    Work performed
+                  </p>
+                  <p className="mt-1 text-sm" style={{ color: "var(--fg-on-dark-2)" }}>
+                    {item.work}
+                  </p>
+                  {item.workDetail && (
+                    <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--fg-on-dark-3)" }}>
+                      {item.workDetail}
+                    </p>
+                  )}
+                </div>
+
+                <div className="mt-4">
+                  <p className="text-lg font-bold" style={{ color: "var(--crimson)" }}>
+                    {item.result}
+                  </p>
+                  {item.resultDetail && (
+                    <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--fg-on-dark-3)" }}>
+                      {item.resultDetail}
+                    </p>
+                  )}
+                </div>
+
                 <p
-                  className="mt-2 text-xs font-bold tracking-[0.12em] uppercase"
+                  className="mt-4 text-xs font-bold tracking-[0.12em] uppercase"
                   style={{ color: "var(--clay)", fontFamily: "var(--font-mono)" }}
                 >
                   Related service: {item.relatedService}

@@ -5,6 +5,7 @@ export type SeoPage = {
   ogTitle?: string;
   ogDescription?: string;
   image?: string;
+  ogImageKey?: string;
   noIndex?: boolean;
 };
 
@@ -56,7 +57,6 @@ export const seoPages: Record<string, SeoPage> = {
     title: "Marketing Systems Resources & Guides | Darling Martech",
     description:
       "Practical resources, guides, frameworks, and checklists for improving website conversion, CRM follow-up, automation, visibility, and growth systems.",
-    noIndex: true,
   },
   about: {
     path: "/about",
