@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -6,15 +10,24 @@ import { heroBadges } from "@/content/trust";
 
 export function Hero() {
   const stages = ["Foundation", "Build", "Scale", "Grow"];
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section
       id="top"
       className="dot-texture crimson-glow relative overflow-hidden bg-navy"
+      ref={ref}
     >
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-24">
+        <motion.div
+          className="grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-24"
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          animate={isInView && !prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           <div>
             <Eyebrow color="var(--clay)">THE OPERATOR LAYER</Eyebrow>
 
@@ -140,7 +153,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

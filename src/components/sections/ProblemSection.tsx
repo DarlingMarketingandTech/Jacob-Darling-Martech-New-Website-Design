@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import { useState } from "react";
 import { Plus, Minus, CornerDownRight } from "lucide-react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -10,9 +12,12 @@ import { problemCards, breakdowns } from "@/content/problem";
 
 export function ProblemSection() {
   const [open, setOpen] = useState<number>(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="section-padding bg-cream">
+    <section className="section-padding bg-cream" ref={ref}>
       <Container>
         <div className="max-w-[760px]">
           <Eyebrow>WHERE IT BREAKS</Eyebrow>
@@ -21,12 +26,29 @@ export function ProblemSection() {
           </h2>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: prefersReducedMotion ? 0 : 0.08,
+              },
+            },
+          }}
+        >
           {problemCards.map((card) => (
-            <div
+            <motion.div
               key={card.code}
               className="group relative overflow-hidden rounded-[var(--radius-lg)] border bg-white p-6 transition-all duration-[240ms] hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
               style={{ borderColor: "var(--line)" }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+              }}
             >
               <div
                 className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 rounded-l-lg bg-[var(--crimson)] transition-transform duration-[240ms] group-hover:scale-y-100"
@@ -49,9 +71,9 @@ export function ProblemSection() {
               >
                 {card.cost}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="mt-8 flex flex-wrap gap-4">
           <Button variant="primary" href={globalCtas.findGrowthLeak.href}>

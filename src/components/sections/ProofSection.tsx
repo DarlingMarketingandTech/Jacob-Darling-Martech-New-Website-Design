@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
@@ -5,8 +9,12 @@ import { globalCtas } from "@/content/ctas";
 import { wins } from "@/content/proof";
 
 export function ProofSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <section className="section-padding bg-navy">
+    <section className="section-padding bg-navy" ref={ref}>
       <Container>
         <SectionHeader
           eyebrow="SELECTED PROOF"
@@ -16,15 +24,33 @@ export function ProofSection() {
           dark
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: prefersReducedMotion ? 0 : 0.1,
+                delayChildren: 0,
+              },
+            },
+          }}
+        >
           {wins.map((w) => (
-            <div
+            <motion.div
               key={w.label}
               className="rounded-[var(--radius-lg)] border p-6"
               style={{
                 background: "var(--surface-dark)",
                 borderColor: "var(--line-on-dark)",
                 boxShadow: "var(--shadow-dark)",
+              }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
               }}
             >
               <w.Icon size={24} strokeWidth={1.8} style={{ color: "var(--clay)" }} aria-hidden="true" />
@@ -46,9 +72,9 @@ export function ProofSection() {
               >
                 {w.who}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <p className="mt-10 text-sm leading-relaxed" style={{ color: "var(--fg-on-dark-3)" }}>
           Outcomes are real. Full case studies — with named context and verified metrics — are

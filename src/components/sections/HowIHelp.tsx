@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import { useState } from "react";
 import { Compass, LayoutGrid, Workflow, TrendingUp, Check } from "lucide-react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { servicePaths } from "@/content/services";
@@ -44,9 +46,12 @@ const stages = stageMetadata.map((meta) => ({
 
 export function HowIHelp() {
   const [active, setActive] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="section-padding dot-texture bg-charcoal">
+    <section className="section-padding dot-texture bg-charcoal" ref={ref}>
       <Container>
         <SectionHeader
           eyebrow="THE OPERATOR LAYER"
@@ -65,12 +70,26 @@ export function HowIHelp() {
             }}
             aria-hidden="true"
           />
-          <div className="relative grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-0" role="tablist">
+          <motion.div
+            className="relative grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-0"
+            role="tablist"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: prefersReducedMotion ? 0 : 0.1,
+                },
+              },
+            }}
+          >
             {stages.map((stage, i) => {
               const Icon = stage.icon;
               const isActive = active === i;
               return (
-                <button
+                <motion.button
                   key={stage.key}
                   onClick={() => setActive(i)}
                   className="relative z-10 flex flex-col items-center gap-3 px-2 py-2 text-center"
@@ -79,6 +98,10 @@ export function HowIHelp() {
                   id={`stage-tab-${stage.key}`}
                   aria-controls={`stage-panel-${stage.key}`}
                   tabIndex={isActive ? 0 : -1}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                  }}
                 >
                   <div
                     className="flex h-14 w-14 items-center justify-center rounded-full border-2 transition-all duration-[240ms]"
@@ -110,10 +133,10 @@ export function HowIHelp() {
                       {stage.key}
                     </div>
                   </div>
-                </button>
+                </motion.button>
               );
             })}
-          </div>
+          </motion.div>
         </div>
 
         <div

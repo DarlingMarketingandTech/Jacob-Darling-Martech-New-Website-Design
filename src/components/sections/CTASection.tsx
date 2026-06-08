@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 
@@ -20,9 +24,14 @@ export function CTASection({
   secondaryHref = "/contact",
   finePrint = "No pressure. No handoffs. Just a clear next step.",
 }: CTASectionProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section
       className="section-padding dot-texture crimson-glow relative overflow-hidden bg-navy"
+      ref={ref}
     >
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
@@ -37,9 +46,15 @@ export function CTASection({
       </div>
 
       <Container className="relative z-10 text-center">
-        <h2 className="dm-display mx-auto max-w-[760px]" style={{ color: "var(--fg-on-dark-1)" }}>
+        <motion.h2
+          className="dm-display mx-auto max-w-[760px]"
+          style={{ color: "var(--fg-on-dark-1)" }}
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          animate={isInView && !prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           {headline}
-        </h2>
+        </motion.h2>
 
         <p className="dm-lead mx-auto mt-5 max-w-[520px]" style={{ color: "var(--fg-on-dark-2)" }}>
           {lead}
