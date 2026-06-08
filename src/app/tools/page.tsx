@@ -6,12 +6,10 @@ import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { diagnosticsByProblem } from "@/content/diagnostics";
 import { segmentCtas } from "@/content/ctas";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Diagnostic Tools",
-  description:
-    "Diagnostic hub for identifying growth bottlenecks across website conversion, follow-up, visibility, automation, and roadmap planning.",
-};
+export const metadata: Metadata = createMetadata(seoPages.tools);
 
 export default function ToolsPage() {
   return (

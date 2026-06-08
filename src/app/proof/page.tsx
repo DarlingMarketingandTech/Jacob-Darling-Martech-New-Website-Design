@@ -5,12 +5,10 @@ import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { globalCtas } from "@/content/ctas";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Selected Proof",
-  description:
-    "Proof that system fixes produce measurable outcomes across conversion, follow-up, visibility, and reporting.",
-};
+export const metadata: Metadata = createMetadata(seoPages.proof);
 
 const proofItems = [
   {

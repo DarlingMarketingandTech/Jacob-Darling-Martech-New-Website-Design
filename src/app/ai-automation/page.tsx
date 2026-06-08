@@ -5,12 +5,10 @@ import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Check } from "lucide-react";
 import { segmentCtas } from "@/content/ctas";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "AI + Automation",
-  description:
-    "Follow-up and CRM automation systems for businesses with manual handoffs and inconsistent lifecycle execution.",
-};
+export const metadata: Metadata = createMetadata(seoPages.aiAutomation);
 
 const features = [
   {

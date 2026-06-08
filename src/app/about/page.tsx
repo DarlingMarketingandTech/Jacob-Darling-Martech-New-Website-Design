@@ -4,12 +4,10 @@ import { AboutFounder } from "@/components/sections/AboutFounder";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { CTASection } from "@/components/sections/CTASection";
 import { globalCtas } from "@/content/ctas";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Founder-led marketing systems partner model with direct accountability from diagnosis through implementation.",
-};
+export const metadata: Metadata = createMetadata(seoPages.about);
 
 export default function AboutPage() {
   return (

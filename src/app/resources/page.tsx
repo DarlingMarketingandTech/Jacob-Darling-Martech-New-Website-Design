@@ -3,11 +3,10 @@ import { PageHeader } from "@/components/sections/PageHeader";
 import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Resources",
-  description: "Marketing system resources, guides, and frameworks from Darling Martech.",
-};
+export const metadata: Metadata = createMetadata(seoPages.resources);
 
 const resources = [
   {

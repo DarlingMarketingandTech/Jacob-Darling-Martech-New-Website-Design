@@ -7,11 +7,9 @@ import { Container } from "./Container";
 
 const navLinks = [
   { label: "Services", href: "/services" },
-  { label: "AI + Automation", href: "/ai-automation" },
-  { label: "Growth", href: "/growth-strategy" },
-  { label: "Websites", href: "/websites-systems" },
-  { label: "Tools", href: "/tools" },
+  { label: "Diagnostics", href: "/tools" },
   { label: "Proof", href: "/proof" },
+  { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
 ];
 
