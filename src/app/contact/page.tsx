@@ -5,11 +5,10 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { globalCtas } from "@/content/ctas";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Book a diagnostic call with Jacob Darling and leave with a clear next-step recommendation.",
-};
+export const metadata: Metadata = createMetadata(seoPages.contact);
 
 const callExpectations = [
   "30-minute diagnostic call",

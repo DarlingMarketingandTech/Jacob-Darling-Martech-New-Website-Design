@@ -2,30 +2,52 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://darlingmartech.com"),
+  metadataBase: new URL(site.url),
   title: {
     template: "%s | Darling Martech",
-    default: "Darling Martech — Marketing. Websites. AI. Growth.",
+    default: "Darling Martech | Marketing Systems, Websites & AI Automation",
   },
   description:
-    "One accountable operator for your marketing system. Strategy, websites, CRM automation, AI workflows, and demand generation — connected and measurable.",
+    "Darling Martech helps growing businesses connect strategy, websites, CRM, automation, AI, visibility, and reporting into one measurable growth system.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://darlingmartech.com",
-    siteName: "Darling Martech",
-    title: "Darling Martech — Marketing. Websites. AI. Growth.",
+    url: site.url,
+    siteName: site.name,
+    title: "Darling Martech | Marketing Systems, Websites & AI Automation",
     description:
-      "One accountable operator for your marketing system. Strategy, websites, CRM automation, AI workflows, and demand generation — connected and measurable.",
+      "Darling Martech helps growing businesses connect strategy, websites, CRM, automation, AI, visibility, and reporting into one measurable growth system.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Darling Martech — Marketing. Websites. AI. Growth.",
+    title: "Darling Martech | Marketing Systems, Websites & AI Automation",
     description:
-      "One accountable operator for your marketing system. Strategy, websites, CRM automation, AI workflows, and demand generation — connected and measurable.",
+      "Darling Martech helps growing businesses connect strategy, websites, CRM, automation, AI, visibility, and reporting into one measurable growth system.",
   },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: site.legalName,
+  founder: {
+    "@type": "Person",
+    name: site.founder,
+  },
+  url: site.url,
+  email: site.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.location.city,
+    addressRegion: site.location.region,
+    addressCountry: site.location.country,
+  },
+  areaServed: site.areaServed,
+  sameAs: [site.url],
 };
 
 export default function RootLayout({
@@ -44,6 +66,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
           rel="stylesheet"
         />
+        <JsonLd data={localBusinessSchema} />
       </head>
       <body>
         <Nav />

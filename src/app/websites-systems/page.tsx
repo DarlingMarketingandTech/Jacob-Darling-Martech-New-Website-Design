@@ -4,12 +4,10 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { segmentCtas } from "@/content/ctas";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Websites & Systems",
-  description:
-    "Website conversion strategy for businesses whose site looks fine but does not generate enough qualified inquiries.",
-};
+export const metadata: Metadata = createMetadata(seoPages.websitesSystems);
 
 const painPoints = [
   {

@@ -4,12 +4,10 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { segmentCtas } from "@/content/ctas";
+import { createMetadata } from "@/lib/metadata";
+import { seoPages } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Growth Strategy",
-  description:
-    "Growth strategy for founders and teams who need positioning, priorities, and execution tied to measurable systems.",
-};
+export const metadata: Metadata = createMetadata(seoPages.growthStrategy);
 
 const priorities = [
   {
