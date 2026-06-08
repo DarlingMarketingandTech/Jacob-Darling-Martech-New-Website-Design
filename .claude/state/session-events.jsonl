@@ -76,3 +76,11 @@
 {"data":{"command":"npm run lint 2\u003e\u00261 | head -30"},"id":"event-000076","state":"stopped","ts":"2026-06-08T15:08:53Z","type":"tool.bash"}
 {"data":{"command":"npm run build 2\u003e\u00261 | tail -50"},"id":"event-000077","state":"stopped","ts":"2026-06-08T15:09:10Z","type":"tool.bash"}
 {"data":{"file_path":"C:\\dev\\Jacob-Darling-Martech-New-Website-Design\\Plans.md"},"id":"event-000078","state":"stopped","ts":"2026-06-08T15:09:18Z","type":"tool.edit"}
+{"data":{"command":"git add -A \u0026\u0026 git status"},"id":"event-000079","state":"stopped","ts":"2026-06-08T15:10:40Z","type":"tool.bash"}
+{"data":{"command":"git commit -m \"$(cat \u003c\u003c'EOF'\nfeat: Phase 3 component cleanup — tasks 3.2 and 3.3\n\n3.2: Delete unused ServiceCard.tsx and ProofCard.tsx. Both components were\nbuilt but never imported. Services and proo"},"id":"event-000080","state":"stopped","ts":"2026-06-08T15:34:21Z","type":"tool.bash"}
+{"data":{"file_path":"C:\\dev\\Jacob-Darling-Martech-New-Website-Design\\src\\components\\sections\\Hero.tsx"},"id":"event-000081","state":"stopped","ts":"2026-06-08T15:35:17Z","type":"tool.edit"}
+{"data":{"file_path":"C:\\dev\\Jacob-Darling-Martech-New-Website-Design\\src\\components\\sections\\Hero.tsx"},"id":"event-000082","state":"stopped","ts":"2026-06-08T15:35:30Z","type":"tool.edit"}
+{"data":{"file_path":"C:\\dev\\Jacob-Darling-Martech-New-Website-Design\\src\\components\\sections\\PageHeader.tsx"},"id":"event-000083","state":"stopped","ts":"2026-06-08T15:35:38Z","type":"tool.edit"}
+{"data":{"command":"npm run lint 2\u003e\u00261 \u0026\u0026 echo \"✓ Lint passed\""},"id":"event-000084","state":"stopped","ts":"2026-06-08T15:36:30Z","type":"tool.bash"}
+{"data":{"command":"npm run build 2\u003e\u00261 | tail -30"},"id":"event-000085","state":"stopped","ts":"2026-06-08T15:37:27Z","type":"tool.bash"}
+{"data":{"file_path":"C:\\dev\\Jacob-Darling-Martech-New-Website-Design\\Plans.md"},"id":"event-000086","state":"stopped","ts":"2026-06-08T15:37:34Z","type":"tool.edit"}

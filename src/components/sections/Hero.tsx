@@ -10,23 +10,8 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-navy"
+      className="dot-texture crimson-glow relative overflow-hidden bg-navy"
     >
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: "radial-gradient(rgba(245,243,238,.045) 1px, transparent 1px)",
-          backgroundSize: "16px 16px",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -top-24 -right-16 h-[480px] w-[480px]"
-        style={{
-          background: "radial-gradient(circle, rgba(153,0,0,0.18) 0%, transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
 
       <Container className="relative z-10">
         <div className="grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-24">

@@ -21,16 +21,8 @@ export function PageHeader({
 }: PageHeaderProps) {
   return (
     <section
-      className="section-padding dot-texture relative overflow-hidden bg-navy"
+      className="section-padding dot-texture crimson-glow relative overflow-hidden bg-navy"
     >
-      {/* Crimson glow — top right */}
-      <div
-        className="pointer-events-none absolute -top-20 -right-16 h-[420px] w-[420px]"
-        style={{
-          background: "radial-gradient(circle, rgba(153,0,0,0.18) 0%, transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
 
       <Container className="relative z-10">
         {breadcrumb && (
