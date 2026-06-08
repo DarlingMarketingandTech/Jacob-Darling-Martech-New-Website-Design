@@ -65,7 +65,7 @@ export function HowIHelp() {
             }}
             aria-hidden="true"
           />
-          <div className="relative grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-0">
+          <div className="relative grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-0" role="tablist">
             {stages.map((stage, i) => {
               const Icon = stage.icon;
               const isActive = active === i;
@@ -74,7 +74,11 @@ export function HowIHelp() {
                   key={stage.key}
                   onClick={() => setActive(i)}
                   className="relative z-10 flex flex-col items-center gap-3 px-2 py-2 text-center"
-                  aria-pressed={isActive}
+                  role="tab"
+                  aria-selected={isActive}
+                  id={`stage-tab-${stage.key}`}
+                  aria-controls={`stage-panel-${stage.key}`}
+                  tabIndex={isActive ? 0 : -1}
                 >
                   <div
                     className="flex h-14 w-14 items-center justify-center rounded-full border-2 transition-all duration-[240ms]"
@@ -119,6 +123,9 @@ export function HowIHelp() {
             borderColor: "var(--line-on-dark)",
             borderLeftColor: "var(--crimson)",
           }}
+          role="tabpanel"
+          id={`stage-panel-${stages[active].key}`}
+          aria-labelledby={`stage-tab-${stages[active].key}`}
         >
           <div>
             <div

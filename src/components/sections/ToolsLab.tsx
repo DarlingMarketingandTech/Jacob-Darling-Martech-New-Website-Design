@@ -25,7 +25,7 @@ export function ToolsLab() {
         />
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[340px_1fr]">
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1" role="tablist">
             {diagnostics.map((tool, i) => {
               const isActive = selected === i;
               return (
@@ -38,7 +38,11 @@ export function ToolsLab() {
                     borderColor: isActive ? "var(--crimson)" : "var(--line)",
                     boxShadow: isActive ? "var(--shadow-sm)" : "none",
                   }}
-                  aria-pressed={isActive}
+                  role="tab"
+                  aria-selected={isActive}
+                  id={`tool-tab-${tool.id}`}
+                  aria-controls={`tool-panel-${tool.id}`}
+                  tabIndex={isActive ? 0 : -1}
                 >
                   <span
                     className="text-sm font-semibold transition-colors"
@@ -56,6 +60,9 @@ export function ToolsLab() {
           <div
             className="rounded-[var(--radius-lg)] border bg-white p-8"
             style={{ borderColor: "var(--line)", boxShadow: "var(--shadow-md)" }}
+            role="tabpanel"
+            id={`tool-panel-${active.id}`}
+            aria-labelledby={`tool-tab-${active.id}`}
           >
             <div className="mb-1 flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-cool-sage" aria-hidden="true" />

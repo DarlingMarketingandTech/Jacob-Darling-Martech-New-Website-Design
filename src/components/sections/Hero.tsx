@@ -55,7 +55,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative overflow-visible">
             <div
               className="rounded-[var(--radius-lg)] border p-6"
               style={{

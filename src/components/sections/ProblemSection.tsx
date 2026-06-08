@@ -79,6 +79,8 @@ export function ProblemSection() {
                     className="flex w-full items-center gap-4 py-6 text-left"
                     onClick={() => setOpen(isOpen ? -1 : i)}
                     aria-expanded={isOpen}
+                    aria-controls={`accordion-panel-${b.id}`}
+                    id={`accordion-button-${b.id}`}
                   >
                     <span
                       className="text-sm font-bold font-mono text-crimson"
@@ -101,7 +103,12 @@ export function ProblemSection() {
                   </button>
 
                   {isOpen && (
-                    <div className="pb-6 pl-10">
+                    <div
+                      className="pb-6 pl-10"
+                      id={`accordion-panel-${b.id}`}
+                      role="region"
+                      aria-labelledby={`accordion-button-${b.id}`}
+                    >
                       <span
                         className="inline-block rounded-[var(--radius-pill)] border px-3 py-1 text-[11px] font-bold tracking-[0.14em] uppercase"
                         style={{
