@@ -4,19 +4,27 @@ import { CTASection } from "@/components/sections/CTASection";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { globalCtas } from "@/content/ctas";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Book a diagnostic call with Jacob Darling. 30 minutes, no commitment.",
+  description: "Book a diagnostic call with Jacob Darling and leave with a clear next-step recommendation.",
 };
+
+const callExpectations = [
+  "30-minute diagnostic call",
+  "I review what you share before we talk",
+  "You leave with a recommended next step",
+  "No pressure, no handoffs",
+];
 
 export default function ContactPage() {
   return (
     <>
       <PageHeader
         eyebrow="CONTACT"
-        headline="BOOK A DIAGNOSTIC CALL."
-        lead="30 minutes. No commitment. I map your system, find the gaps, and tell you exactly what to fix first."
+        headline="Book a diagnostic call."
+        lead="Tell me what feels disconnected. I&rsquo;ll review the current system, map the likely bottleneck, and give you a clear next-step recommendation."
         breadcrumb="Darling Martech / Contact"
       />
 
@@ -24,14 +32,13 @@ export default function ContactPage() {
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.4fr]">
             <div>
-              <Eyebrow className="mb-4">GET IN TOUCH</Eyebrow>
+              <Eyebrow className="mb-4">WHAT TO EXPECT</Eyebrow>
               <h2 className="dm-h2 mb-4" style={{ color: "var(--charcoal)" }}>
-                Start with a conversation.
+                Low-friction first step.
               </h2>
               <p className="text-base leading-relaxed" style={{ color: "var(--fg2)" }}>
-                Every engagement starts with a diagnostic call. Tell me about your business, what
-                you&rsquo;re working on, and what&rsquo;s not working — I&rsquo;ll tell you exactly
-                how I&rsquo;d approach it.
+                Start with the context you already have. I review what you share before we talk, and
+                you leave with a recommended next step.
               </p>
               <div
                 className="mt-8 rounded-[var(--radius-lg)] border p-5"
@@ -41,16 +48,11 @@ export default function ContactPage() {
                   className="mb-3 text-xs font-bold tracking-[0.14em] uppercase"
                   style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
                 >
-                  WHAT TO EXPECT
+                  DIAGNOSTIC CALL EXPECTATIONS
                 </div>
-                {[
-                  "30-minute diagnostic call",
-                  "I review your current system before we talk",
-                  "You get a clear next-step recommendation",
-                  "No sales pitch. Just an honest assessment.",
-                ].map((item, i) => (
+                {callExpectations.map((item) => (
                   <div
-                    key={i}
+                    key={item}
                     className="flex items-start gap-2.5 border-t py-2 text-sm"
                     style={{ borderColor: "var(--line)", color: "var(--charcoal)" }}
                   >
@@ -70,12 +72,12 @@ export default function ContactPage() {
       </section>
 
       <CTASection
-        headline="PREFER TO SKIP THE FORM?"
-        lead="Book directly using the calendar link — pick a time that works and I'll confirm within the hour."
-        primaryLabel="Book a Call Directly"
-        primaryHref="/contact"
-        secondaryLabel="Run the Growth Audit First"
-        secondaryHref="/tools"
+        headline="Prefer to start with a diagnostic first?"
+        lead="If you are still narrowing the bottleneck, start in the tools hub and bring the results to the call."
+        primaryLabel={globalCtas.findGrowthLeak.label}
+        primaryHref={globalCtas.findGrowthLeak.href}
+        secondaryLabel={globalCtas.bookDiagnosticCall.label}
+        secondaryHref={globalCtas.bookDiagnosticCall.href}
       />
     </>
   );

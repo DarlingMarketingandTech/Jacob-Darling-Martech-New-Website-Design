@@ -1,37 +1,41 @@
 import { Metadata } from "next";
 import { PageHeader } from "@/components/sections/PageHeader";
-import { HowIHelp } from "@/components/sections/HowIHelp";
 import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Check } from "lucide-react";
+import { segmentCtas } from "@/content/ctas";
 
 export const metadata: Metadata = {
   title: "AI + Automation",
   description:
-    "CRM setup, lifecycle automation, and AI-assisted workflows — connected and measurable.",
+    "Follow-up and CRM automation systems for businesses with manual handoffs and inconsistent lifecycle execution.",
 };
 
 const features = [
   {
-    title: "CRM Setup & Cleanup",
-    description:
-      "Pipeline stages, contact properties, and deal flows set up so your team can trust the data.",
+    title: "Lead routing",
+    description: "Route new leads to the right owner quickly with clear ownership and response windows.",
   },
   {
-    title: "Lifecycle Automation",
-    description:
-      "Lead routing, follow-up sequences, and re-engagement flows — running without manual effort.",
+    title: "Reminders and follow-up",
+    description: "Set automated reminders and lifecycle sequences so follow-up never depends on memory.",
   },
   {
-    title: "AI Workflow Integration",
-    description:
-      "Practical AI tools embedded in your marketing process — content, research, and reporting acceleration.",
+    title: "Lifecycle workflows",
+    description: "Move contacts through lifecycle stages with defined triggers, actions, and checkpoints.",
   },
   {
-    title: "Tech Stack Audit",
-    description:
-      "A clear picture of what you own, what's connected, what's redundant, and what to add next.",
+    title: "Intake and CRM cleanup",
+    description: "Standardize intake fields, clean key properties, and make CRM reporting usable.",
+  },
+  {
+    title: "AI-assisted workflows",
+    description: "Use AI where it reduces drag, improves response speed, and supports consistency.",
+  },
+  {
+    title: "Reporting",
+    description: "Track what gets captured, followed up, and converted so decisions are measurable.",
   },
 ];
 
@@ -40,16 +44,14 @@ export default function AIAutomationPage() {
     <>
       <PageHeader
         eyebrow="AI + AUTOMATION"
-        headline="SYSTEMS THAT RUN WHILE YOU FOCUS."
-        lead="CRM, automation, and AI — connected to your strategy, not bolted on as an afterthought."
+        headline="Automation should make the business easier to run."
+        lead="When follow-up is manual and tools are disconnected, response speed drops and opportunities leak. I connect the system so it runs cleanly."
         breadcrumb="Darling Martech / AI + Automation"
       />
 
-      <HowIHelp />
-
       <section className="section-padding" style={{ background: "var(--cream)" }}>
         <Container>
-          <Eyebrow className="mb-8">WHAT THIS COVERS</Eyebrow>
+          <Eyebrow className="mb-8">FOLLOW-UP SYSTEM PRIORITIES</Eyebrow>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {features.map((f) => (
               <div
@@ -81,8 +83,12 @@ export default function AIAutomationPage() {
       </section>
 
       <CTASection
-        headline="READY TO CONNECT THE SYSTEM?"
-        lead="Book a diagnostic call. I map your current stack, find the disconnections, and build a plan to automate what should be automated."
+        headline="Ready to remove follow-up drag?"
+        lead="Map the handoffs first, then automate what should be automated."
+        primaryLabel={segmentCtas.automation.primary.label}
+        primaryHref={segmentCtas.automation.primary.href}
+        secondaryLabel={segmentCtas.automation.secondary.label}
+        secondaryHref={segmentCtas.automation.secondary.href}
       />
     </>
   );

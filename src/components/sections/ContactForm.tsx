@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 
-const serviceOptions = [
-  "Foundation & Strategy",
-  "Website & Conversion",
-  "CRM & Automation",
-  "AI Workflows",
-  "Growth & Demand",
-  "General Enquiry",
+const nextStepOptions = [
+  "Website conversion",
+  "Follow-up / CRM",
+  "Automation / AI",
+  "Local visibility / SEO",
+  "Growth roadmap",
+  "Not sure yet",
 ];
 
 export function ContactForm() {
@@ -30,7 +30,7 @@ export function ContactForm() {
           className="mb-3 text-sm font-bold tracking-[0.14em] uppercase"
           style={{ color: "var(--crimson)", fontFamily: "var(--font-mono)" }}
         >
-          MESSAGE RECEIVED
+          REQUEST RECEIVED
         </div>
         <h3 className="dm-h3 mb-2" style={{ color: "var(--charcoal)" }}>
           I&rsquo;ll be in touch shortly.
@@ -59,6 +59,7 @@ export function ContactForm() {
           </label>
           <input
             id="name"
+            aria-required="true"
             name="name"
             type="text"
             required
@@ -78,6 +79,7 @@ export function ContactForm() {
           </label>
           <input
             id="email"
+            aria-required="true"
             name="email"
             type="email"
             required
@@ -90,17 +92,19 @@ export function ContactForm() {
 
       <div className="mt-5 flex flex-col gap-1.5">
         <label
-          htmlFor="company"
+          htmlFor="websiteUrl"
           className="text-xs font-bold tracking-[0.12em] uppercase"
           style={{ color: "var(--fg2)", fontFamily: "var(--font-mono)" }}
         >
-          Company
+          Website URL (required)
         </label>
         <input
-          id="company"
-          name="company"
-          type="text"
-          placeholder="Your company name"
+          id="websiteUrl"
+            aria-required="true"
+          name="websiteUrl"
+          type="url"
+          required
+          placeholder="https://yourwebsite.com"
           className="rounded-[var(--radius-md)] border px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--crimson)]"
           style={{ borderColor: "var(--line)", color: "var(--charcoal)" }}
         />
@@ -108,20 +112,60 @@ export function ContactForm() {
 
       <div className="mt-5 flex flex-col gap-1.5">
         <label
-          htmlFor="service"
+          htmlFor="broken"
           className="text-xs font-bold tracking-[0.12em] uppercase"
           style={{ color: "var(--fg2)", fontFamily: "var(--font-mono)" }}
         >
-          Service Interest
+          What feels broken? (required)
+        </label>
+        <textarea
+          id="broken"
+          aria-required="true"
+          name="broken"
+          required
+          rows={4}
+          placeholder="Share where conversion, follow-up, visibility, or reporting feels disconnected."
+          className="resize-none rounded-[var(--radius-md)] border px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--crimson)]"
+          style={{ borderColor: "var(--line)", color: "var(--charcoal)" }}
+        />
+      </div>
+
+      <div className="mt-5 flex flex-col gap-1.5">
+        <label
+          htmlFor="improve"
+          className="text-xs font-bold tracking-[0.12em] uppercase"
+          style={{ color: "var(--fg2)", fontFamily: "var(--font-mono)" }}
+        >
+          What are you trying to improve? (required)
+        </label>
+        <textarea
+          id="improve"
+            aria-required="true"
+          name="improve"
+          required
+          rows={3}
+          placeholder="Example: better qualified leads, faster follow-up, stronger local visibility."
+          className="resize-none rounded-[var(--radius-md)] border px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--crimson)]"
+          style={{ borderColor: "var(--line)", color: "var(--charcoal)" }}
+        />
+      </div>
+
+      <div className="mt-5 flex flex-col gap-1.5">
+        <label
+          htmlFor="nextStep"
+          className="text-xs font-bold tracking-[0.12em] uppercase"
+          style={{ color: "var(--fg2)", fontFamily: "var(--font-mono)" }}
+        >
+          Best next step
         </label>
         <select
-          id="service"
-          name="service"
+          id="nextStep"
+          name="nextStep"
           className="rounded-[var(--radius-md)] border px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--crimson)]"
           style={{ borderColor: "var(--line)", color: "var(--charcoal)", background: "white" }}
         >
-          <option value="">Select a service...</option>
-          {serviceOptions.map((opt) => (
+          <option value="">Select one...</option>
+          {nextStepOptions.map((opt) => (
             <option key={opt} value={opt}>
               {opt}
             </option>
@@ -129,34 +173,12 @@ export function ContactForm() {
         </select>
       </div>
 
-      <div className="mt-5 flex flex-col gap-1.5">
-        <label
-          htmlFor="message"
-          className="text-xs font-bold tracking-[0.12em] uppercase"
-          style={{ color: "var(--fg2)", fontFamily: "var(--font-mono)" }}
-        >
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          placeholder="Tell me about your business and what you're trying to solve..."
-          className="resize-none rounded-[var(--radius-md)] border px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--crimson)]"
-          style={{ borderColor: "var(--line)", color: "var(--charcoal)" }}
-        />
-      </div>
-
       <div className="mt-6">
         <Button type="submit" variant="primary" size="md">
-          Send Message
+          Request Diagnostic
         </Button>
-        <p
-          className="mt-3 text-xs"
-          style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
-        >
-          Response within one business day. No spam.
+        <p className="mt-3 text-xs" style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}>
+          Response within one business day. No pressure.
         </p>
       </div>
     </form>

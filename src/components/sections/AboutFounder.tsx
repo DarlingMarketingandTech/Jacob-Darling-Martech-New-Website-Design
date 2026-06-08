@@ -2,10 +2,11 @@ import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const chips = [
-  "Direct Access",
-  "Strategic Execution",
-  "Systems Builder",
-  "Measurable Results",
+  "Direct access",
+  "Strategy + implementation",
+  "Systems builder",
+  "Measurable results",
+  "Indianapolis-based",
 ];
 
 export function AboutFounder() {
@@ -13,7 +14,6 @@ export function AboutFounder() {
     <section className="section-padding" style={{ background: "var(--cream)" }}>
       <Container>
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.1fr]">
-          {/* Photo placeholder */}
           <div
             className="aspect-[4/5] w-full rounded-[var(--radius-lg)] border"
             style={{
@@ -32,7 +32,6 @@ export function AboutFounder() {
             </div>
           </div>
 
-          {/* Copy */}
           <div className="pt-2">
             <Eyebrow>ABOUT</Eyebrow>
 
@@ -41,33 +40,28 @@ export function AboutFounder() {
             </h2>
 
             <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--fg2)" }}>
-              I&rsquo;m Jacob Darling — a marketing systems operator who works directly with
-              growing businesses to connect strategy, websites, CRM, automation, and demand
-              generation into a system that compounds.
+              I&rsquo;m Jacob Darling. I work directly with growing businesses to connect the parts
+              of marketing that usually drift apart: strategy, websites, CRM, automation, AI
+              workflows, visibility, and reporting.
             </p>
 
             <p className="mt-3 text-base leading-relaxed" style={{ color: "var(--fg2)" }}>
-              Most marketing problems aren&rsquo;t traffic or budget problems. They&rsquo;re
-              disconnected-system problems. The strategy is there. The tools are running. But
-              nothing is tied together, so nothing compounds.
+              Most marketing problems are not traffic problems first. They are disconnected-system
+              problems. The offer is unclear. The website does not move people. Follow-up depends
+              on memory. Reporting does not show what to do next.
             </p>
 
-            {/* Serif quote */}
-            <div
-              className="mt-8 border-l-[3px] pl-5"
-              style={{ borderColor: "var(--crimson)" }}
-            >
-              <p
-                className="dm-quote"
-                style={{ color: "var(--charcoal)", fontFamily: "var(--font-serif)" }}
-              >
-                The best{" "}
-                <em style={{ color: "var(--crimson)", fontStyle: "italic" }}>operators</em> don&rsquo;t
-                just plan — they build the system and stay accountable to the result.
+            <p className="mt-3 text-base leading-relaxed" style={{ color: "var(--fg2)" }}>
+              I help diagnose the real bottleneck, build the fix, and stay close enough to make
+              sure the system can actually run.
+            </p>
+
+            <div className="mt-8 border-l-[3px] pl-5" style={{ borderColor: "var(--crimson)" }}>
+              <p className="dm-quote" style={{ color: "var(--charcoal)", fontFamily: "var(--font-serif)" }}>
+                Good strategy points the way. A connected system makes it repeatable.
               </p>
             </div>
 
-            {/* Value chips */}
             <div className="mt-8 flex flex-wrap gap-2">
               {chips.map((chip) => (
                 <span
@@ -84,11 +78,7 @@ export function AboutFounder() {
               ))}
             </div>
 
-            {/* Sign-off */}
-            <p
-              className="mt-6 text-sm"
-              style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
-            >
+            <p className="mt-6 text-sm" style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}>
               &#10043; Jacob Darling &mdash; Darling Martech
             </p>
           </div>
